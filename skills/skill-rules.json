@@ -53,6 +53,16 @@
           "(push|ship).*?(prod|live)"
         ]
       }
+    },
+    "input-classifier": {
+      "type": "guardrail",
+      "enforcement": "block",
+      "priority": "critical",
+      "file": "prd/input-classifier.md",
+      "fileTriggers": {
+        "pathPatterns": [".claude-project/prd/*_PRD_*.md"]
+      },
+      "blockMessage": "BLOCKED: Input classification required before PRD modification.\n\nRun input-classifier skill first to analyze the input file.\nThis ensures proper handling of Q&A answers vs scope changes."
     }
   }
 }
