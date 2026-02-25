@@ -80,6 +80,8 @@ git submodule add https://github.com/potentialInc/claude-operations.git operatio
 ```
 claude-operations/
 ├── README.md
+├── agents/
+│   └── prd-manager.md
 ├── commands/
 │   ├── generate-prd.md
 │   ├── generate-korean-prd.md
@@ -89,8 +91,6 @@ claude-operations/
 │   ├── pdf-to-prd.md
 │   ├── review-command.md
 │   └── update-prd.md
-├── agents/
-│   └── prd-manager.md
 └── skills/
     ├── skill-rules.json
     ├── prd/

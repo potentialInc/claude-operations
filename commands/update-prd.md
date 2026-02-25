@@ -14,12 +14,12 @@ You are a PRD update specialist. Your task is to surgically update an existing P
 3. Read and parse existing PRD
 4. Classify input content (input-classifier skill auto-runs)
 5. Match answers to questions (Question Resolution items)
-5A. Change Request Safety Gate (Change Request items — Impact Analysis → Diff Preview → Conflict Detection → Approval)
-6. Apply approved changes
-7. Update Additional Questions section
-8. Update Feature Change Log
-9. Save updated PRD
-10. Report results
+6. Change Request Safety Gate (Change Request items — Impact Analysis → Diff Preview → Conflict Detection → Approval)
+7. Apply approved changes
+8. Update Additional Questions section
+9. Update Feature Change Log
+10. Save updated PRD
+11. Report results
 
 ---
 
@@ -27,7 +27,9 @@ You are a PRD update specialist. Your task is to surgically update an existing P
 
 Read the file path from `$ARGUMENTS`.
 
-**Supported formats**: .md, .pdf, .txt, or any text-based file
+**Supported formats**: `.md`, `.txt`, `.pdf`, or any text-based file
+
+> **Note**: Binary formats (`.xlsx`, `.csv`) are not directly supported. If the user provides a binary file, ask them to convert it to a text-based format (e.g., copy-paste into `.md` or `.txt`) before proceeding.
 
 **Validation checks**:
 1. File path is provided
@@ -274,13 +276,13 @@ Unmatched answer found:
 
 ---
 
-## Step 5A: Change Request Safety Gate
+## Step 6: Change Request Safety Gate
 
 **Applies to: Change Request items only. Skipped if no Change Requests detected.**
 
 The prd-manager agent's Safety Gate process runs for all Change Request items.
 
-### 5A.1 Gate 1: Impact Analysis
+### 6.1 Gate 1: Impact Analysis
 
 For each change request, scan the entire PRD to identify affected sections:
 
@@ -305,7 +307,7 @@ Changes detected: [N]
    - Part 1 > 3rd Party API List
 ```
 
-### 5A.2 Gate 2: Diff Preview
+### 6.2 Gate 2: Diff Preview
 
 For each affected section, generate Before/After preview:
 
@@ -328,7 +330,7 @@ Change 2: [ADD] Push notification
   + ADD: Part 1 > 3rd Party API: Firebase Cloud Messaging
 ```
 
-### 5A.3 Gate 3: Conflict Detection + Approval
+### 6.3 Gate 3: Conflict Detection + Approval
 
 Check each change against the Confirmed Decisions table:
 
@@ -357,7 +359,7 @@ Approve changes?
 
 If "Select which to apply" → individual Approve/Reject for each change.
 
-### 5A.4 Risk-Based Gate Routing
+### 6.4 Risk-Based Gate Routing
 
 | Risk Level | Gates | Behavior |
 |:-----------|:------|:---------|
@@ -368,11 +370,11 @@ If "Select which to apply" → individual Approve/Reject for each change.
 
 ---
 
-## Step 6: Apply Approved Changes
+## Step 7: Apply Approved Changes
 
 Apply only approved changes to the PRD. This step handles both Question Resolution and Change Request items.
 
-### 6.1 Question Resolution Updates
+### 7.1 Question Resolution Updates
 
 For each confirmed answer-question pair, update the PRD body:
 
@@ -385,7 +387,7 @@ For each confirmed answer-question pair, update the PRD body:
 - Update relevant Module Flow → Add payment step details
 - Update Part 3 Admin → Add payment management section reference
 
-### 6.2 Change Request Updates
+### 7.2 Change Request Updates
 
 For each approved Change Request, apply based on sub-type:
 
@@ -413,7 +415,7 @@ For each approved Change Request, apply based on sub-type:
 - Revert PRD sections to pre-decision state where possible
 - Log as "Decision Reversed" in Change Log
 
-### 6.3 Update Rules (CRITICAL — inherited from generate-prd)
+### 7.3 Update Rules (CRITICAL — inherited from generate-prd)
 
 1. **No guessing**: Only write what the client explicitly stated
    - Client says "Toss Payments" → Write "Toss Payments"
@@ -437,7 +439,7 @@ For each approved Change Request, apply based on sub-type:
 
 7. **Deferred changes become questions**: Changes deferred to "ask client to re-confirm" are added to the Additional Questions section.
 
-### 6.4 Section Update Format
+### 7.4 Section Update Format
 
 When updating a section, replace only the affected content:
 
@@ -456,9 +458,9 @@ When updating a section, replace only the affected content:
 
 ---
 
-## Step 7: Update Additional Questions Section
+## Step 8: Update Additional Questions Section
 
-### 7.1 Move Answered Questions to Confirmed Decisions
+### 8.1 Move Answered Questions to Confirmed Decisions
 
 For each resolved question, remove from its original table and add to the Confirmed Decisions section.
 
@@ -472,7 +474,7 @@ For each resolved question, remove from its original table and add to the Confir
 | 2 | Social login | Kakao, Google, Apple | Client Answer File ([filename]) |
 ```
 
-### 7.2 Keep Unanswered Questions
+### 8.2 Keep Unanswered Questions
 
 Retain unanswered questions in their original tables. Renumber sequentially (no gaps).
 
@@ -494,7 +496,7 @@ Retain unanswered questions in their original tables. Renumber sequentially (no 
 | 1 | Max users per account? | Needed for permission design |
 ```
 
-### 7.3 Add New Questions
+### 8.3 Add New Questions
 
 If client answers reveal new ambiguities, add to the appropriate table:
 
@@ -507,7 +509,7 @@ If client answers reveal new ambiguities, add to the appropriate table:
 | 3 | Toss Payments subscription support? | Client confirmed Toss but subscription model unclear |
 ```
 
-### 7.4 Update Section Header
+### 8.4 Update Section Header
 
 **If ALL questions resolved (both Required and Recommended empty):**
 ```markdown
@@ -525,15 +527,15 @@ Keep existing structure with updated tables.
 
 ---
 
-## Step 8: Update Feature Change Log
+## Step 9: Update Feature Change Log
 
-### 8.1 Determine New Version
+### 9.1 Determine New Version
 
 Parse current version from the latest `## Version X.X` entry.
 - Increment minor version: 1.0 → 1.1, 1.1 → 1.2, etc.
 - If no version exists, this becomes Version 1.1 (assuming initial PRD was 1.0)
 
-### 8.2 Add New Version Entry
+### 9.2 Add New Version Entry
 
 Insert new version **above** existing versions (newest first):
 
@@ -564,7 +566,7 @@ Insert new version **above** existing versions (newest first):
 - **Remaining Open Questions**: [N] Required, [N] Recommended
 ```
 
-### 8.3 Change Type Categories
+### 9.3 Change Type Categories
 
 Use these change types in the table:
 
@@ -587,15 +589,15 @@ Use these change types in the table:
 
 ---
 
-## Step 9: Save Updated PRD
+## Step 10: Save Updated PRD
 
-### 9.1 Save Strategy
+### 10.1 Save Strategy
 
 Overwrite the same file at the same path. Do NOT create a new file.
 
 **Rationale**: Version history is tracked within the Feature Change Log section. The filename uses the original creation date, and internal versioning (1.0 → 1.1 → 1.2) tracks evolution.
 
-### 9.2 Verify Save
+### 10.2 Verify Save
 
 After saving, read the file back to verify:
 - File is not empty
@@ -605,7 +607,7 @@ After saving, read the file back to verify:
 
 ---
 
-## Step 10: Report Results
+## Step 11: Report Results
 
 Output the following report:
 
@@ -781,9 +783,8 @@ This has been flagged for user review during Safety Gate approval.
 ```
 → input-classifier detects mixed → Q&A first, then Safety Gate for changes
 
-**Update PRD from any file format:**
+**Update PRD from various text formats:**
 ```
-/update-prd /path/to/feedback.xlsx
 /update-prd /path/to/meeting-notes.pdf
 /update-prd /path/to/client-email.txt
 ```

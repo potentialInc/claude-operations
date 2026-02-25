@@ -11,6 +11,8 @@ Automatically analyzes input file content and classifies it into processing mode
 
 When `/update-prd` is executed, this skill runs **before** any PRD file is modified. It reads the input file, detects what type of content it contains, and routes each item to the appropriate processing mode.
 
+**Context dependency**: This skill is registered in `skill-rules.json` with `fileTriggers` on PRD files (`.claude-project/prd/*_PRD_*.md`), meaning it blocks PRD file edits until classification completes. The input file path is provided by the `/update-prd` command via `$ARGUMENTS` — this skill does NOT independently determine which file to classify.
+
 ## Classification Categories
 
 ### 1. Question Resolution
@@ -46,7 +48,9 @@ Input contains both Q&A answers and change requests.
 
 ### Step 1: Read Input Content
 
-Read the input file provided to `/update-prd`. Supported formats: `.md`, `.txt`, `.pdf`, `.xlsx`, `.csv`, or any text-based file.
+Read the input file provided to `/update-prd`. Supported formats: `.md`, `.txt`, `.pdf`, or any text-based file.
+
+> **Note**: Binary formats (`.xlsx`, `.csv`) are not directly readable. If the user provides a binary file, ask them to convert it to a text-based format first.
 
 ### Step 2: Load Target PRD Questions
 
@@ -174,5 +178,6 @@ Routing:
 2. **Preserve all items** — Every identifiable item must be classified, nothing is silently dropped
 3. **Ask when ambiguous** — If classification confidence is low, ask the user rather than guessing
 4. **Q&A first in mixed mode** — When both types are present, process Question Resolution items first
-5. **Tag all Change Requests** — Every Change Request must have a sub-type tag (`[ADD]`, `[REMOVE]`, etc.)
-6. **Risk level assignment** — Every Change Request must have a risk level for Safety Gate routing
+5. **Cascade conflict awareness** — In mixed mode, Q&A resolution may add new Confirmed Decisions. Change Requests processed afterward must run Conflict Detection against the **updated** Confirmed Decisions list (including newly added ones from Q&A), not just the original list
+6. **Tag all Change Requests** — Every Change Request must have a sub-type tag (`[ADD]`, `[REMOVE]`, etc.)
+7. **Risk level assignment** — Every Change Request must have a risk level for Safety Gate routing
