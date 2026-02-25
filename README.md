@@ -24,6 +24,7 @@ git submodule add https://github.com/potentialInc/claude-operations.git operatio
 | `pdf-to-prd` | Convert PRD PDF to structured markdown | `/pdf-to-prd <pdf-file>` |
 | `generate-ppt` | Generate HTML presentations with branding | `/generate-ppt <topic>` |
 | `generate-sop` | Generate Standard Operating Procedure | `/generate-sop <process>` |
+| `update-prd` | Update PRD with client answers or scope changes (auto-detects input type) | `/update-prd <input-file>` |
 
 ### Project Management
 
@@ -32,7 +33,19 @@ git submodule add https://github.com/potentialInc/claude-operations.git operatio
 | `generate-random-project` | Generate random project specs for training | `/generate-random-project` |
 | `review-command` | Review command file compatibility | `/review-command <command-file>` |
 
+## Available Agents
+
+| Agent | Description | Invocation |
+|-------|-------------|------------|
+| `prd-manager` | PRD lifecycle dashboard, question tracking, Safety Gate guardian, change history audit | "PRD status" or "Review these changes" |
+
 ## Available Skills
+
+### PRD Skills
+
+| Skill | Description | Enforcement |
+|-------|-------------|-------------|
+| `input-classifier` | Auto-classifies input as Q&A, change request, or mixed before PRD modification | `block` (auto-runs on PRD edit) |
 
 ### Workflow Skills
 
@@ -50,6 +63,9 @@ git submodule add https://github.com/potentialInc/claude-operations.git operatio
 
 # Create a presentation
 /generate-ppt "Q1 Product Roadmap"
+
+# Update PRD with client answers or scope changes (auto-detects)
+/update-prd client-feedback.md
 
 # Create an SOP and add to Notion
 /generate-sop "New Employee Onboarding"
@@ -71,9 +87,14 @@ claude-operations/
 │   ├── generate-sop.md
 │   ├── generate-random-project.md
 │   ├── pdf-to-prd.md
-│   └── review-command.md
+│   ├── review-command.md
+│   └── update-prd.md
+├── agents/
+│   └── prd-manager.md
 └── skills/
     ├── skill-rules.json
+    ├── prd/
+    │   └── input-classifier.md
     ├── fullstack/
     │   ├── deployment.md
     │   └── iteration-manager.md
