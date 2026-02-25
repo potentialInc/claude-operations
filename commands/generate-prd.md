@@ -395,18 +395,16 @@ All admin dashboard pages should include the following standard features unless 
 
 # Feature Change Log
 
-## Version X.X (YYYY-MM-DD)
+## Version 1.0 ([TODAY'S DATE: YYYY-MM-DD])
 
-| Change Type | Before | After | Source |
-|:-----------|:-------|:------|:-------|
-| **Feature Replaced** | [Previous feature] | [New feature] | [Source document] |
-| **Feature Extended** | [Existing feature] | [Added details] | [Source document] |
-| **Feature Removed** | [Removed feature] | - | [Source document] |
+| Change Type | Risk | Before | After | Source |
+|:-----------|:-----|:-------|:------|:-------|
+| **Initial PRD** | - | - | PRD generated from client input | [Source document] |
 
 ### Change Details
-#### [Change Title]
-- **Source Document**: [Document name]
-- **Change Description**: [Detailed description]
+#### Initial Generation
+- **Source Document**: [Client input filename]
+- **Change Description**: Initial PRD generated from client questionnaire answers
 
 ---
 
@@ -478,7 +476,9 @@ When updating an existing PRD with new input:
   - Extension: New details added to existing feature
 - [ ] **Navigation Menu Update**: Update navigation menu when feature names change
 - [ ] **Terminology Sync**: New feature names reflected in Terminology
-- [ ] **Change Log Recording**: Record all changes in "Feature Change Log" section
+- [ ] **Change Log Recording**: Record all changes in "Feature Change Log" section with Risk column (`Change Type | Risk | Before | After | Source`)
+
+> **Note**: For iterative PRD updates after initial generation, use `/update-prd [answer-file]` instead of re-running `/generate-prd`. The update command provides auto-classification, Safety Gate review, and structured change tracking.
 
 ### Feature Update Rules:
 1. **New input takes priority**: New document content takes priority over existing PRD
@@ -652,7 +652,8 @@ Location: `.claude-project/prd/`
 ### Next Steps
 1. Review the Additional Questions section
 2. Send questions to client for clarification
-3. Update PRD with client responses using `/generate-prd` again
+3. Update PRD with client responses using `/update-prd [answer-file]`
+4. Check PRD status anytime with prd-manager agent ("PRD status")
 ```
 
 ---
@@ -772,4 +773,6 @@ The following questions should be answered by the client. PMs can use this list 
 - Part 3 (Admin Dashboard) can be omitted for projects without admin dashboard
 - User type count is flexible per project
 - Unclear content is output in **Additional Questions** section at the end
-- When updating existing PRD, changes are tracked in **Feature Change Log**
+- When updating existing PRD, changes are tracked in **Feature Change Log** (with Risk column)
+- After initial generation, use `/update-prd` for iterative updates (auto-classification + Safety Gate)
+- Initial PRD is generated as Version 1.0; subsequent updates increment to 1.1, 1.2, etc.
