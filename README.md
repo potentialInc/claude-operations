@@ -25,6 +25,17 @@ git submodule add https://github.com/potentialInc/claude-operations.git operatio
 | `generate-ppt` | Generate HTML presentations with branding | `/generate-ppt <topic>` |
 | `generate-sop` | Generate Standard Operating Procedure | `/generate-sop <process>` |
 
+### QA & Testing
+
+| Command | Description | Usage |
+|---------|-------------|-------|
+| `qa-input-fields` | Analyze input fields and generate QA test report | `/qa-input-fields <file-path>` |
+| `qa-back-navigation` | Analyze back navigation behavior and generate QA report | `/qa-back-navigation <file-path>` |
+| `qa-loading-error-empty` | Analyze loading/error/empty states and generate QA report | `/qa-loading-error-empty <file-path>` |
+| `qa-modal-drawer` | Analyze modal/drawer/dialog behavior and generate QA report | `/qa-modal-drawer <file-path>` |
+| `qa-table-list` | Analyze table/list data display and generate QA report | `/qa-table-list <file-path>` |
+| `qa-permission-role` | Analyze permission/role-based access and generate QA report | `/qa-permission-role <file-path>` |
+
 ### Project Management
 
 | Command | Description | Usage |
@@ -71,6 +82,12 @@ claude-operations/
 │   ├── generate-sop.md
 │   ├── generate-random-project.md
 │   ├── pdf-to-prd.md
+│   ├── qa-back-navigation.md
+│   ├── qa-input-fields.md
+│   ├── qa-loading-error-empty.md
+│   ├── qa-modal-drawer.md
+│   ├── qa-permission-role.md
+│   ├── qa-table-list.md
 │   └── review-command.md
 └── skills/
     ├── skill-rules.json

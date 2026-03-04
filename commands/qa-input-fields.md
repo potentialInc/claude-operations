@@ -209,6 +209,17 @@ Parse the component/page source code and discover ALL input fields.
 - `<Formik>` or `useFormik()` + `<Field name="...">` (Formik)
 - Native `<input>`, `<select>`, `<textarea>` elements
 
+**React (Server Actions / React 19):**
+- `<form action={serverAction}>` — Server Action form submission (no `onSubmit`)
+- `useFormState(serverAction, initialState)` / `useActionState(serverAction, initialState)` — Server Action with progressive enhancement
+- `useOptimistic(state, updateFn)` — Optimistic UI updates during form submission
+- `'use server'` directive in action function — Server-side form handler
+
+**React (Conform):**
+- `useForm({ ... })` from `@conform-to/react` — Conform form hook
+- `parseWithZod(formData, { schema })` — Server-side + client-side validation with Conform + Zod
+- `getFormProps(form)`, `getInputProps(fields.name, { type: 'text' })` — Conform field helpers
+
 **Vue:**
 - `v-model="fieldName"` directives in `<template>`
 - `useField('fieldName')` / `useForm()` (VeeValidate)
@@ -341,6 +352,13 @@ Trace data flow from frontend form submission through the entire stack.
    - `httpService.post('/users', data)` → `POST /users`
    - `httpService.patch('/users/${id}', data)` → `PATCH /users/:id`
 
+**Server Action Tracing (React 19 / Next.js App Router):**
+- Detect `<form action={actionFn}>` where `actionFn` has `'use server'` directive
+- Trace the server action function: it receives `FormData` directly
+- The action may call `redirect()` on success or return validation errors
+- Pattern: `action → parseWithZod(formData) → service call → redirect or return errors`
+- No separate API endpoint — the action IS the backend handler
+
 **4.2 Backend Tracing** (if `--depth full`):
 
 1. Match `POST /users` → find `@Controller('users')` + `@Post()` decorator
@@ -411,6 +429,15 @@ For each field, verify:
    - Example: placeholder says "Enter 10-digit number" but `maxLength` is 15 → MISMATCH
 4. **Select/Enum synchronization**: Frontend option list vs `@IsEnum()` vs DB enum values — are they identical?
 5. **Min/Max synchronization**: HTML `min/max` attributes vs `@Min/@Max` decorators vs DB constraints — do they match?
+6. **HTML `autocomplete` attribute**: For fields like email, phone, address, password — is `autocomplete` set correctly?
+   - `autocomplete="email"` for email fields
+   - `autocomplete="new-password"` or `autocomplete="current-password"` for password fields
+   - `autocomplete="tel"` for phone fields
+   - Incorrect or missing `autocomplete` causes browser autofill issues on mobile
+7. **HTML `maxLength` silent truncation check**: Does the `<input maxLength={N}>` attribute silently clip user input?
+   - If schema says `max(100)` and HTML element has `maxLength={50}`, the HTML attribute silently truncates at 50 characters with NO error message
+   - Schema validation never triggers because the browser already clipped the input
+   - Assessment: WARNING if `maxLength` is more restrictive than schema max, CRITICAL if `maxLength` is less than schema min
 
 **Step 5a Checklist:**
 ```
@@ -718,12 +745,17 @@ Save to `.claude-project/qa/` directory:
 | Error Message Coverage | 15% | Error messages exist, are clear, properly placed |
 | CRUD Traceability | 15% | Operations traced end-to-end |
 
-**Severity scoring:**
-- CRITICAL issue: -15 points
-- WARNING issue: -5 points
-- INFO issue: 0 points
-- Each fully-traced CRUD path: +5 points
-- Each field with consistent 3-layer validation: +3 points
+**Scoring rules** (see `qa-shared-reference.md` for full scoring system):
+
+```
+Base Score: 100
+Deductions: CRITICAL = -15, WARNING = -5, INFO = 0
+Score = max(0, 100 - sum(deductions))
+Bonus (capped at +10 total):
+  - Each fully-traced CRUD path: +3
+  - Each field with consistent 3-layer validation: +1
+Final Score = min(100, Score + Bonus)
+```
 
 **Status thresholds:**
 - **PASS**: >= 80 points
@@ -758,14 +790,25 @@ Save to `.claude-project/qa/` directory:
 - **Inherited/base class DTO** — Follows `extends` chain to collect all validators
 - **Custom validators** — Flags as "custom validator — manual review needed"
 - **i18n error messages** — Detects `t('key')` patterns; notes actual text is in locale files
+- **Server Actions (React 19 / Next.js)** — `<form action={serverAction}>` pattern detected; traces `'use server'` functions instead of API calls
+- **Conform library** — `@conform-to/react` form management with server+client validation detected
+- **useOptimistic hook** — React 19 optimistic form updates that show result before server responds
+- **Progressive enhancement forms** — Forms that work without JavaScript via `action` attribute + server handler
+- **HTML maxLength silent truncation** — `maxLength` attribute clips input without error; flagged if more restrictive than schema
+- **autocomplete attribute audit** — Missing or incorrect `autocomplete` values on email/password/phone fields flagged
+- **Paste behavior on OTP fields** — Pasting a full code should fill all cells; detected in Split Input pattern
+- **Internationalized validation** — Phone number format varies by country; name fields may contain CJK/diacritics
 
 ---
 
 ## Related Commands
 
-- `/review-command` - Validate this command's structure and quality
-- (Future) `/qa-api-endpoints` - QA test all API endpoints in a controller
-- (Future) `/qa-e2e-flows` - Generate E2E test scenarios for complete user flows
+- `/qa-back-navigation` — QA back navigation behavior
+- `/qa-loading-error-empty` — QA loading/error/empty states
+- `/qa-modal-drawer` — QA modal/drawer behavior (form-in-modal validation)
+- `/qa-table-list` — QA table/list data display (filter inputs)
+- `/qa-permission-role` — QA permission/role access (form access per role)
+- `/review-command` — Validate this command's structure and quality
 
 ---
 
