@@ -24,7 +24,6 @@ git submodule add https://github.com/potentialInc/claude-operations.git operatio
 | `pdf-to-prd` | Convert PRD PDF to structured markdown | `/pdf-to-prd <pdf-file>` |
 | `generate-ppt` | Generate HTML presentations with branding | `/generate-ppt <topic>` |
 | `generate-sop` | Generate Standard Operating Procedure | `/generate-sop <process>` |
-| `update-prd` | Update PRD with client answers or scope changes (auto-detects input type) | `/update-prd <input-file>` |
 
 ### Project Management
 
@@ -89,8 +88,7 @@ claude-operations/
 │   ├── generate-sop.md
 │   ├── generate-random-project.md
 │   ├── pdf-to-prd.md
-│   ├── review-command.md
-│   └── update-prd.md
+│   └── review-command.md
 └── skills/
     ├── skill-rules.json
     ├── prd/
