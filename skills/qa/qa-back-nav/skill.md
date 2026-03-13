@@ -1,6 +1,8 @@
 ---
-description: Analyze back navigation behavior in a page/component and generate a QA report covering browser back button, mobile system back key, and navigation anti-patterns
-argument-hint: "<page-or-component-file-path> [--router <router-config-path>] [--mobile] [--depth full|shallow]"
+name: qa-back-nav
+description: "Audit browser back navigation, history stack, mobile back key, redirect chains, and route guard behavior"
+user-invocable: true
+argument-hint: "[module or page-path]"
 ---
 
 # QA Back Navigation
@@ -11,7 +13,7 @@ Analyze navigation and back-button behavior in a frontend page or component, det
 
 ## Purpose
 
-This command helps you:
+This skill helps you:
 1. **Detect navigation framework** — Identify React Router, Next.js, Vue Router, Angular Router, or Nuxt patterns
 2. **Audit replace vs push usage** — Flag `router.replace()` calls that break back navigation
 3. **Trace back button components** — Find back/return buttons and verify they use `router.back()` not hardcoded paths
@@ -21,7 +23,7 @@ This command helps you:
 7. **Check after-action navigation** — Verify post-submit/delete redirects preserve correct history
 8. **Generate test cases** — Produce actionable QA test checklists for manual and automated testing
 
-**Important:** This command is **read-only**. It analyzes source code and generates reports — it does NOT modify any files.
+**Important:** This skill is **read-only**. It analyzes source code and generates reports — it does NOT modify any files.
 
 ---
 
@@ -30,28 +32,29 @@ This command helps you:
 - A frontend page or component file (`.tsx`, `.jsx`, `.vue`, `.svelte`, `.ts`, `.js`)
 - (Optional) Router config file path for route tree analysis
 - (Optional) Project `CLAUDE.md` with project-specific navigation conventions
+- **Reference:** `qa-shared/reference.md` for framework detection tables and router pattern mappings
 
 ---
 
 ## Usage
 
 ```bash
-/qa-back-navigation <page-or-component-file-path>
+/qa-back-nav <page-or-component-file-path>
 ```
 
 **Examples:**
 ```bash
 # Analyze a React page component
-/qa-back-navigation frontend/src/pages/UserDetail.tsx
+/qa-back-nav src/pages/UserDetail.tsx
 
 # Include router config for full route tree analysis
-/qa-back-navigation src/pages/OrderConfirm.tsx --router src/router/index.ts
+/qa-back-nav src/pages/OrderConfirm.tsx --router src/router/index.ts
 
 # Explicitly include mobile back key analysis
-/qa-back-navigation src/screens/HomeScreen.tsx --mobile
+/qa-back-nav src/screens/HomeScreen.tsx --mobile
 
 # Shallow analysis — only analyze the given file, no route tree traversal
-/qa-back-navigation pages/checkout.vue --depth shallow
+/qa-back-nav pages/checkout.vue --depth shallow
 ```
 
 **Arguments:**
@@ -70,7 +73,9 @@ This command helps you:
 ┌─────────────────────────────────────────────────────────────┐
 │  Step 1: Input Validation & Framework Detection              │
 │  - Validate file path and extension                          │
-│  - Detect navigation framework (React Router/Next/Vue/etc.) │
+│  - Auto-detect frontend/backend directories                  │
+│  - Detect navigation framework and apply corresponding       │
+│    patterns (React Router/Next/Vue/Angular/Nuxt/etc.)        │
 │  - Detect project type (SPA / React Native / PWA / Hybrid)  │
 └─────────────────────────────────────────────────────────────┘
                           ↓
@@ -167,12 +172,16 @@ Read the file path from `$ARGUMENTS`. Parse optional flags (`--router`, `--mobil
 **If validation fails:**
 ```
 Error: [specific error message]
-Usage: /qa-back-navigation <page-or-component-file-path> [--router <router-config-path>] [--mobile] [--depth full|shallow]
+Usage: /qa-back-nav <page-or-component-file-path> [--router <router-config-path>] [--mobile] [--depth full|shallow]
 ```
 
-**1.2 Navigation Framework Detection:**
+**1.2 Project Structure Detection:**
 
-Read the target file and project's `package.json`:
+Auto-detect frontend and backend directories by scanning for `package.json` files, framework config files (`next.config.*`, `nuxt.config.*`, `vite.config.*`, `angular.json`, etc.), and common directory conventions (`src/`, `app/`, `pages/`, `components/`). Do not assume any hardcoded directory paths.
+
+**1.3 Navigation Framework Detection:**
+
+Read the target file and project's `package.json`. Detect framework and apply corresponding patterns:
 
 | Signal | Framework |
 |--------|-----------|
@@ -186,7 +195,7 @@ Read the target file and project's `package.json`:
 | `import { goto } from '$app/navigation'` | SvelteKit |
 | `import { useRouter } from 'next/navigation'` + `app/` dir with `@parallel` or `(.)intercepting` | Next.js App Router (parallel/intercepting routes) |
 
-**1.3 Project Type Detection:**
+**1.4 Project Type Detection:**
 
 | Signal | Project Type |
 |--------|-------------|
@@ -198,7 +207,7 @@ Read the target file and project's `package.json`:
 | `createWebHashHistory()` or `HashRouter` in router config | SPA (hash mode — FLAG) |
 | Other SPA frameworks | SPA (history mode) |
 
-**1.4 Auto-detect `--mobile`:**
+**1.5 Auto-detect `--mobile`:**
 
 If `react-native` or `@capacitor/core` or `cordova` is detected in package.json, automatically enable mobile back key analysis (equivalent to `--mobile` flag being set).
 
@@ -206,6 +215,7 @@ If `react-native` or `@capacitor/core` or `cordova` is detected in package.json,
 ```
 [ ] File path validated and file exists
 [ ] File extension is supported
+[ ] Frontend/backend directories auto-detected
 [ ] Navigation framework detected
 [ ] Project type detected (SPA / React Native / PWA / Hybrid)
 [ ] --mobile auto-detected from package.json (if applicable)
@@ -218,6 +228,8 @@ If `react-native` or `@capacitor/core` or `cordova` is detected in package.json,
 Parse the component/page source and extract every navigation call site.
 
 **2.1 Framework-Specific Navigation Call Patterns:**
+
+Detect framework and apply corresponding patterns:
 
 **React Router v6:**
 - `navigate('/path')` — push (normal)
@@ -365,16 +377,19 @@ Flag these as requiring manual testing.
 
 ### Step 4: Redirect & Guard Analysis
 
-**4.1 useEffect / Mounted Redirects (Auto-Redirect on Load):**
+**4.1 Lifecycle Hook Redirects (Auto-Redirect on Load):**
 
-Detect navigation calls inside lifecycle hooks:
+Detect navigation calls inside lifecycle hooks. The hook name varies by framework:
 
-| Pattern | Framework | Assessment |
-|---------|-----------|------------|
-| `useEffect(() => { navigate('/login', { replace: true }) }, [])` | React | OK — auth guard with replace |
-| `useEffect(() => { navigate('/login') }, [])` | React | WARNING — should use replace for auth redirects |
-| `useEffect(() => { router.push('/login') }, [])` | Next/Vue | WARNING — should use replace |
-| `onMounted(() => { router.replace('/login') })` | Vue | OK — correct use of replace |
+| Framework | Lifecycle Hook | Replace Example (OK) | Push Example (WARNING) |
+|-----------|---------------|---------------------|----------------------|
+| React | `useEffect(() => { ... }, [])` | `navigate('/login', { replace: true })` | `navigate('/login')` |
+| Next.js | `useEffect(() => { ... }, [])` | `router.replace('/login')` | `router.push('/login')` |
+| Vue | `onMounted(() => { ... })` | `router.replace('/login')` | `router.push('/login')` |
+| Nuxt | `onMounted()` or route middleware | `navigateTo('/login', { replace: true })` | `navigateTo('/login')` |
+| Angular | `ngOnInit()` | `this.router.navigate(['/login'], { replaceUrl: true })` | `this.router.navigate(['/login'])` |
+| SvelteKit | `+page.server.ts` load function | `redirect(303, '/login')` (server-side, always replace) | N/A |
+| Generic | Any initialization code | Look for redirect calls in init/mount handlers | Same |
 
 **Key rule:** Auth guards that redirect unauthenticated users SHOULD use `replace` so the login page does not appear in back history. Flag uses of `push` in auth guard redirects.
 
@@ -509,7 +524,7 @@ This step only runs if `--depth full` (the default) AND a `--router` path is pro
 
 **6.1 Router Config Auto-Location:**
 
-If `--router` is not provided, look for:
+If `--router` is not provided, auto-detect frontend directories and look for:
 
 | Pattern | Location |
 |---------|----------|
@@ -806,7 +821,7 @@ Save to `.claude-project/qa/` directory:
 | Route Tree & Deep Link Safety | 10% | History mode correct, no orphan routes, deep links have meaningful back |
 | Test Coverage Completeness | 5% | Test cases cover all detected scenarios |
 
-**Scoring rules** (see `qa-shared-reference.md` for full scoring system):
+**Scoring rules** (see `qa-shared-reference` skill for full scoring system):
 
 ```
 Base Score: 100
@@ -904,14 +919,14 @@ The following modern patterns are detected in addition to the standard patterns 
 
 ---
 
-## Related Commands
+## Related Skills
 
-- `/qa-input-fields` — QA all input fields in the same page/component
-- `/qa-loading-error-empty` — QA loading/error/empty states
-- `/qa-modal-drawer` — QA modal/drawer behavior (modals affect back navigation)
-- `/qa-table-list` — QA table/list data display (back preserves table state)
-- `/qa-permission-role` — QA permission/role access (auth redirect uses replace)
-- `/review-command` — Validate this command's structure and quality
+- `qa-input-fields` — QA all input fields in the same page/component
+- `qa-loading-error-empty` — QA loading/error/empty states
+- `qa-modal-drawer` — QA modal/drawer behavior (modals affect back navigation)
+- `qa-table-list` — QA table/list data display (back preserves table state)
+- `qa-permission-role` — QA permission/role access (auth redirect uses replace)
+- `review-command` — Validate this skill's structure and quality
 
 ---
 
@@ -922,6 +937,6 @@ The following modern patterns are detected in addition to the standard patterns 
 3. **Use `--router` for full analysis** — Route tree analysis catches orphan routes and deep link issues invisible from a single file
 4. **Mobile projects: always use `--mobile`** — Even web-only projects deployed as Capacitor/PWA apps need hardware back button handling
 5. **Auth guard redirects should always use replace** — `router.replace('/login')` not `router.push('/login')` in guards — this is the #1 rule
-6. **Combine with `/qa-input-fields`** — After-submit navigation should be reviewed alongside input validation for complete UX coverage
+6. **Combine with `qa-input-fields`** — After-submit navigation should be reviewed alongside input validation for complete UX coverage
 7. **Re-run after adding new screens** — Every new page with a back button or auth guard should be analyzed
 8. **Test deep links manually** — Open the page URL directly in a new tab and verify back button behavior with no history stack

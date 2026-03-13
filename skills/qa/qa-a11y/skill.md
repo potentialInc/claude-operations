@@ -1,6 +1,8 @@
 ---
-description: Analyze frontend components for WCAG 2.2 accessibility compliance and generate a comprehensive QA report covering semantic structure, ARIA usage, keyboard navigation, form accessibility, visual accessibility, and dynamic content
-argument-hint: "<file-path> [--level A|AA|AAA] [--backend <backend-src-path>] [--depth full|shallow]"
+name: qa-a11y
+description: "Audit WCAG 2.2 accessibility - semantic HTML, ARIA, keyboard navigation, form a11y, visual contrast, dynamic content, touch targets"
+user-invocable: true
+argument-hint: "[module or page-path]"
 ---
 
 # QA Accessibility (WCAG 2.2)
@@ -11,7 +13,7 @@ Analyze frontend pages and components for WCAG 2.2 accessibility compliance, aud
 
 ## Purpose
 
-This command helps you:
+This skill helps you:
 1. **Discover semantic HTML structure** — Heading hierarchy, landmarks, proper HTML elements vs div-soup
 2. **Analyze ARIA usage** — Roles, states, properties, live regions correctness and misuse detection
 3. **Verify keyboard navigation** — Tab order, focus management, keyboard traps, skip links
@@ -21,7 +23,7 @@ This command helps you:
 7. **Verify touch accessibility** — Target sizes (24x24 minimum, 44x44 recommended), spacing between targets
 8. **Generate test cases** — Produce actionable WCAG 2.2 compliance checklists
 
-**Important:** This command is **read-only**. It analyzes source code and generates reports — it does NOT modify any files.
+**Important:** This skill is **read-only**. It analyzes source code and generates reports — it does NOT modify any files.
 
 ---
 
@@ -36,30 +38,30 @@ This command helps you:
 ## Usage
 
 ```bash
-/qa-accessibility <file-path>
+/qa-a11y <file-or-module-path>
 ```
 
 **Examples:**
 ```bash
 # React page — default AA level
-/qa-accessibility src/pages/Dashboard.tsx
+/qa-a11y src/pages/Dashboard.tsx
 
 # Enforce AAA compliance level
-/qa-accessibility src/pages/Checkout.tsx --level AAA
+/qa-a11y src/pages/Checkout.tsx --level AAA
 
-# With backend tracing for server-rendered markup
-/qa-accessibility frontend/app/pages/profile/index.tsx --backend backend/src
+# With backend tracing for server-rendered markup (auto-detects frontend/backend directories)
+/qa-a11y app/pages/profile/index.tsx --backend src
 
 # Frontend-only shallow analysis
-/qa-accessibility src/components/NavigationMenu.tsx --depth shallow
+/qa-a11y src/components/NavigationMenu.tsx --depth shallow
 ```
 
 **Arguments:**
 | Argument | Required | Description |
 |----------|----------|-------------|
-| `<file-path>` | Yes | Path to the frontend page/component file |
+| `<file-or-module-path>` | Yes | Path to the frontend page/component file or module directory |
 | `--level A\|AA\|AAA` | No | WCAG 2.2 conformance level to audit against. Default: `AA` |
-| `--backend <path>` | No | Path to backend source root. If omitted, auto-detects sibling `backend/` directory |
+| `--backend <path>` | No | Path to backend source root. If omitted, auto-detects backend directory |
 | `--depth full\|shallow` | No | `full` (default): trace through imports and related components. `shallow`: single file analysis |
 
 ---
@@ -171,7 +173,7 @@ Read the file path from `$ARGUMENTS`. Parse optional flags (`--level`, `--backen
 **If validation fails:**
 ```
 Error: [specific error message]
-Usage: /qa-accessibility <file-path> [--level A|AA|AAA] [--backend <backend-src-path>] [--depth full|shallow]
+Usage: /qa-a11y <file-or-module-path> [--level A|AA|AAA] [--backend <backend-src-path>] [--depth full|shallow]
 ```
 
 **1.2 Framework Detection:**
@@ -224,7 +226,7 @@ Default: `AA`. Override with `--level` flag.
 
 **1.6 Backend Detection** (if `--depth full`):
 
-If `--backend` provided, use that path. Otherwise, look for sibling `backend/` directory.
+If `--backend` provided, use that path. Otherwise, auto-detect backend directories (e.g., sibling `backend/`, `server/`, `api/` directories).
 
 | Signal | Framework |
 |--------|-----------|
@@ -1018,7 +1020,7 @@ Final Score = min(100, Score + Bonus)
 | No interactive elements found | Static content page with no forms or widgets | Report on semantic structure only; note limited scope |
 | Framework not detected | Unusual structure | Falls back to generic pattern scanning |
 | A11y library not detected | No known accessibility library in dependencies | Analyzes raw HTML/ARIA patterns; flags as higher risk |
-| Backend path not found | `--backend` invalid or no sibling `backend/` | Runs frontend-only analysis (`--depth shallow`) |
+| Backend path not found | `--backend` invalid or no backend directory detected | Runs frontend-only analysis (`--depth shallow`) |
 | CSS not resolvable | CSS modules, styled-components, or external stylesheets | Notes as "styles unresolvable — manual contrast audit needed" |
 | Dynamic ARIA values | ARIA attributes set by runtime JS logic | Notes as "dynamic ARIA — manual verification needed" |
 | Component library abstraction | ARIA handled inside library component (e.g., Radix Dialog) | Assumes library provides correct ARIA; verifies usage props |
@@ -1049,14 +1051,14 @@ Final Score = min(100, Score + Bonus)
 
 ---
 
-## Related Commands
+## Related Skills
 
-- `/qa-input-fields` — Form validation (accessibility of form interactions and error handling)
-- `/qa-modal-drawer` — Modal focus trap, escape handling, aria-modal, aria-labelledby
-- `/qa-loading-error-empty` — Loading/error states need aria-live announcements and aria-busy
-- `/qa-table-list` — Table semantics, column headers, scope attributes, row actions
-- `/qa-back-navigation` — Route change screen reader announcements, focus management on navigation
-- `/review-command` — Validate this command's structure and quality
+- `qa-input-fields` — Form validation (accessibility of form interactions and error handling)
+- `qa-modal-drawer` — Modal focus trap, escape handling, aria-modal, aria-labelledby
+- `qa-loading-error-empty` — Loading/error states need aria-live announcements and aria-busy
+- `qa-table-list` — Table semantics, column headers, scope attributes, row actions
+- `qa-back-navigation` — Route change screen reader announcements, focus management on navigation
+- `review-command` — Validate this skill's structure and quality
 
 ---
 

@@ -1,6 +1,8 @@
 ---
-description: Analyze modal, drawer, dialog, and bottom sheet components and generate a comprehensive QA report covering focus management, scroll lock, keyboard handling, accessibility, and state lifecycle
-argument-hint: "<page-or-component-file-path> [--depth full|shallow]"
+name: qa-modal
+description: "Audit modal, drawer, dialog, and bottom sheet lifecycle - focus management, scroll lock, keyboard handling, form safety, accessibility"
+user-invocable: true
+argument-hint: "[module or page-path]"
 ---
 
 # QA Modal / Drawer / Dialog
@@ -11,7 +13,7 @@ Analyze all modal, drawer, dialog, and bottom sheet components in a frontend pag
 
 ## Purpose
 
-This command helps you:
+This skill helps you:
 1. **Discover all overlay components** — Find every modal, drawer, dialog, alert dialog, bottom sheet, and popover in a page
 2. **Verify open/close completeness** — Ensure every open trigger has a matching close path
 3. **Audit focus management** — Check focus trap inside modals and focus return on close
@@ -21,7 +23,7 @@ This command helps you:
 7. **Verify accessibility** — `role="dialog"`, `aria-modal`, `aria-labelledby`, `aria-describedby`
 8. **Generate test cases** — Produce actionable QA test checklists
 
-**Important:** This command is **read-only**. It analyzes source code and generates reports — it does NOT modify any files.
+**Important:** This skill is **read-only**. It analyzes source code and generates reports — it does NOT modify any files.
 
 ---
 
@@ -35,19 +37,19 @@ This command helps you:
 ## Usage
 
 ```bash
-/qa-modal-drawer <page-or-component-file-path>
+/qa-modal <page-or-component-file-path>
 ```
 
 **Examples:**
 ```bash
 # React page with shadcn Dialog
-/qa-modal-drawer src/pages/UserManagement.tsx
+/qa-modal src/pages/UserManagement.tsx
 
 # Vue page with Element Plus dialogs
-/qa-modal-drawer pages/orders/index.vue
+/qa-modal pages/orders/index.vue
 
 # Shallow analysis — only the given file
-/qa-modal-drawer src/components/Settings.tsx --depth shallow
+/qa-modal src/components/Settings.tsx --depth shallow
 ```
 
 **Arguments:**
@@ -64,6 +66,7 @@ This command helps you:
 ┌─────────────────────────────────────────────────────────────┐
 │  Step 1: Input Validation & Project Detection                │
 │  - Validate file path and extension                          │
+│  - Auto-detect frontend/backend directories                  │
 │  - Detect frontend framework (React/Vue/Angular/Svelte/HTML)│
 │  - Detect UI component library (Radix/MUI/Ant/Headless/etc.)│
 └─────────────────────────────────────────────────────────────┘
@@ -159,10 +162,17 @@ Read the file path from `$ARGUMENTS`. Parse optional flags (`--depth`).
 **If validation fails:**
 ```
 Error: [specific error message]
-Usage: /qa-modal-drawer <page-or-component-file-path> [--depth full|shallow]
+Usage: /qa-modal <page-or-component-file-path> [--depth full|shallow]
 ```
 
-**1.2 Framework Detection:**
+**1.2 Project Structure Detection:**
+
+Auto-detect frontend and backend directories by scanning the project root for common patterns:
+- Look for `package.json`, `tsconfig.json`, `vite.config.*`, `next.config.*`, `nuxt.config.*`, `angular.json`, etc.
+- Identify the frontend source directory (e.g., `src/`, `app/`, `pages/`, `components/`)
+- Detect framework and apply corresponding patterns
+
+**1.3 Framework Detection:**
 
 Read the target file and project's `package.json`:
 
@@ -174,7 +184,7 @@ Read the target file and project's `package.json`:
 | `.svelte` extension | Svelte |
 | `<form>` + no framework imports + `.html` extension | Plain HTML |
 
-**1.3 UI Component Library Detection:**
+**1.4 UI Component Library Detection:**
 
 | Signal | Library |
 |--------|---------|
@@ -817,7 +827,7 @@ Save to `.claude-project/qa/` directory:
 | State Reset on Close | 10% | Form values, error states cleared on reopen |
 | Accessibility | 15% | role, aria-modal, aria-labelledby, aria-describedby |
 
-**Scoring rules** (see `qa-shared-reference.md` for full scoring system):
+**Scoring rules** (see `qa-shared-reference` skill for full scoring system):
 
 ```
 Base Score: 100
@@ -861,9 +871,10 @@ Final Score = min(100, Score + Bonus)
 - **Portal rendering** — `createPortal`, `<Teleport>` verified for correct mount point
 - **Modal on mobile viewport** — Keyboard opening changes viewport height; modal should not be pushed off-screen
 - **iOS body scroll position jump** — `position: fixed` + `top` pattern detected
+- **Chat/message list in modal** — Modal containing a scrollable message list must scroll to the latest (bottom) message on open. `scrollIntoView({ behavior: 'smooth' })` fails with many messages (animation stops midway). Use `container.scrollTop = container.scrollHeight` with `setTimeout` (150ms+) to wait for Dialog open animation to finish. Never use smooth scroll for initial load.
 - **Animation interruption** — Clicking close during open animation; interaction during transition
 - **Multiple modals of same type** — Same component rendered with different data via key prop; state isolation verified
-- **Server component modals** — Next.js App Router: modal trigger in server component, modal in client component
+- **Server component modals** — Framework-specific patterns (e.g., Next.js App Router: modal trigger in server component, modal in client component)
 - **HTML Native `<dialog>` element** — `.showModal()` provides built-in focus trap, scroll lock, ESC handling; `.show()` does NOT
 - **Command Palette (cmdk)** — `<Command.Dialog>` uses arrow keys for navigation instead of Tab; keyboard interaction is list-based
 - **Responsive modal behavior** — Dialog on desktop converting to Bottom Sheet on mobile; detected via media query or responsive props
@@ -873,14 +884,14 @@ Final Score = min(100, Score + Bonus)
 
 ---
 
-## Related Commands
+## Related Skills
 
-- `/qa-input-fields` — QA all input fields (useful for form-in-modal validation)
-- `/qa-back-navigation` — QA back navigation (modals may affect back button behavior)
-- `/qa-loading-error-empty` — QA loading/error/empty states (modals may load data)
-- `/qa-table-list` — QA table/list components
-- `/qa-permission-role` — QA permission/role access (modals may be role-gated)
-- `/review-command` — Validate this command's structure and quality
+- `qa-input-fields` — QA all input fields (useful for form-in-modal validation)
+- `qa-back-navigation` — QA back navigation (modals may affect back button behavior)
+- `qa-loading-error-empty` — QA loading/error/empty states (modals may load data)
+- `qa-table-list` — QA table/list components
+- `qa-permission-role` — QA permission/role access (modals may be role-gated)
+- `review-command` — Validate this skill's structure and quality
 
 ---
 
@@ -891,6 +902,6 @@ Final Score = min(100, Score + Bonus)
 3. **State reset is easily forgotten** — Opening a modal, entering data, closing, and reopening should show a clean form — not stale data
 4. **Nested modals need manual testing** — Automated analysis can detect them, but ESC order and z-index stacking need visual verification
 5. **AlertDialog should NOT close on ESC/overlay** — Confirmation dialogs are intentionally hard to dismiss; verify this is the case
-6. **Combine with `/qa-input-fields`** — Forms inside modals should also be analyzed for input validation coverage
+6. **Combine with `qa-input-fields` skill** — Forms inside modals should also be analyzed for input validation coverage
 7. **Check scroll lock on iOS specifically** — The most common bug: body still scrolls on iOS Safari even when `overflow: hidden` is set
 8. **Re-run after adding new modals** — Every new modal/drawer should be analyzed for the full checklist

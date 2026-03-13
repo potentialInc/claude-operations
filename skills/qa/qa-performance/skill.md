@@ -1,6 +1,8 @@
 ---
-description: Analyze frontend performance patterns and Core Web Vitals readiness — bundle impact, rendering efficiency, image optimization, code splitting, layout stability (CLS), and resource loading
-argument-hint: "<page-or-component-file-path> [--backend <backend-src-path>] [--depth full|shallow] [--budget <json-path>]"
+name: qa-performance
+description: "Audit frontend performance and Core Web Vitals - bundle impact, rendering efficiency, image optimization, code splitting, CLS, resource loading"
+user-invocable: true
+argument-hint: "[module or page-path]"
 ---
 
 # QA Frontend Performance / Core Web Vitals
@@ -11,7 +13,7 @@ Analyze frontend performance patterns in a page or component, detect bundle bloa
 
 ## Purpose
 
-This command helps you:
+This skill helps you:
 1. **Analyze bundle impact** — Detect heavy dependencies, barrel imports, tree-shaking failures
 2. **Detect rendering inefficiencies** — Unnecessary re-renders, missing memoization, expensive computations in render
 3. **Audit image optimization** — Unoptimized formats, missing dimensions (CLS), lazy loading, responsive images
@@ -21,7 +23,7 @@ This command helps you:
 7. **Detect resource loading issues** — Render-blocking scripts, unoptimized fonts, third-party script impact
 8. **Generate test cases** — Produce actionable performance test checklists
 
-**Important:** This command is **read-only**. It analyzes source code and generates reports — it does NOT modify any files.
+**Important:** This skill is **read-only**. It analyzes source code and generates reports — it does NOT modify any files.
 
 ---
 
@@ -74,6 +76,7 @@ This command helps you:
 ┌─────────────────────────────────────────────────────────────┐
 │  Step 1: Input Validation & Project Detection                │
 │  - Validate file path and extension                          │
+│  - Auto-detect frontend/backend directories                  │
 │  - Detect frontend framework (React/Vue/Angular/Svelte/HTML)│
 │  - Detect bundler, performance libraries, optimization tools │
 └─────────────────────────────────────────────────────────────┘
@@ -172,19 +175,27 @@ Error: [specific error message]
 Usage: /qa-performance <page-or-component-file-path> [--backend <path>] [--depth full|shallow] [--budget <json-path>]
 ```
 
-**1.2 Framework Detection:**
+**1.2 Project Structure Detection:**
+
+Auto-detect frontend and backend directories by scanning the project root for common patterns:
+- Look for `package.json`, `src/`, `app/`, `pages/` directories
+- Detect monorepo structures (workspaces, `packages/`, `apps/`)
+- If `--backend` not provided, attempt to auto-detect backend directory by looking for server-side entry points
+
+**1.3 Framework Detection:**
 
 Read the target file and project's `package.json`:
 
 | Signal | Framework |
 |--------|-----------|
 | `import ... from 'react'` or JSX/TSX + `react` in package.json | React |
+| `react-native` in package.json + `import { View } from 'react-native'` | React Native |
 | `<template>` + `<script>` + `.vue` extension | Vue |
 | `@Component` decorator + `@angular/core` in package.json | Angular |
 | `.svelte` extension | Svelte |
 | `<form>` + no framework imports + `.html` extension | Plain HTML |
 
-**1.3 Bundler Detection:**
+**1.4 Bundler Detection:**
 
 | Signal | Bundler |
 |--------|---------|
@@ -196,8 +207,20 @@ Read the target file and project's `package.json`:
 | `rspack.config.js` or `@rspack/core` in package.json | Rspack |
 | `rollup.config.js` or `rollup.config.ts` | Rollup |
 | `parcel` in package.json or `.parcelrc` | Parcel |
+| `metro.config.js` or `react-native` in package.json | Metro (React Native) |
 
-**1.4 Performance Library Detection:**
+**1.4b Package Manager Detection:**
+
+| Signal | Package Manager |
+|--------|----------------|
+| `package-lock.json` exists | npm |
+| `yarn.lock` exists | Yarn |
+| `pnpm-lock.yaml` exists | pnpm |
+| `bun.lockb` or `bun.lock` exists | Bun |
+
+Use the detected package manager for any build/analysis commands (e.g., `pnpm run build` instead of `npm run build`).
+
+**1.5 Performance Library Detection:**
 
 | Signal | Library |
 |--------|---------|
@@ -207,7 +230,7 @@ Read the target file and project's `package.json`:
 | `source-map-explorer` in package.json | Source Map Explorer |
 | `@lhci/cli` or `lighthouse-ci` in package.json | Lighthouse CI |
 
-**1.5 Optimization Library Detection:**
+**1.6 Optimization Library Detection:**
 
 | Signal | Library |
 |--------|---------|
@@ -217,15 +240,16 @@ Read the target file and project's `package.json`:
 | `plaiceholder` in package.json | Plaiceholder (blur placeholders) |
 | `next/font` import | Next.js Font Optimization |
 
-**1.6 Configuration Reading:**
+**1.7 Configuration Reading:**
 - Read bundler config if present (`next.config.js`, `vite.config.ts`, `webpack.config.js`)
 - Read performance budget if `--budget` provided
-- Read `.qa-config.json` if present (see `qa-shared-reference.md`)
+- Read `.qa-config.json` if present
 
 **Step 1 Checklist:**
 ```
 [ ] File path validated and file exists
 [ ] File extension is supported
+[ ] Frontend/backend directories auto-detected
 [ ] Frontend framework detected
 [ ] Bundler detected
 [ ] Performance libraries detected
@@ -289,6 +313,8 @@ Check bundler configuration:
 | Route components imported with static `import` | All routes bundled together | Use dynamic `import()` for route components |
 
 **2.5 Framework-Specific Bundle Checks:**
+
+Detect the framework and apply corresponding patterns:
 
 **Next.js:**
 - `output: 'standalone'` in `next.config.js` — optimizes for container deployment
@@ -395,6 +421,8 @@ Audit all image and media usage for Core Web Vitals impact.
 | Images larger than 200KB without compression | Excessive download size | LCP | WARNING |
 
 **4.2 Framework-Specific Image Checks:**
+
+Detect framework and apply corresponding image patterns:
 
 | Framework | Pattern | Issue | Severity |
 |-----------|---------|-------|----------|
@@ -764,7 +792,7 @@ Save to `.claude-project/qa/` directory:
 | Resource Loading | 10% | Blocking resources, third-party, caching |
 | Data Fetching | 10% | Waterfalls, cache strategy, prefetch |
 
-**Scoring rules** (see `qa-shared-reference.md` for full scoring system):
+**Scoring rules:**
 
 ```
 Base Score: 100
@@ -796,7 +824,7 @@ Final Score = min(100, Score + Bonus)
 | Bundler not detected | No config file or non-standard setup | Falls back to import-based analysis only |
 | package.json not found | No package manager | Falls back to import-based detection; bundle analysis limited |
 | Performance budget file not found | Invalid `--budget` path | Warning shown; budget comparison skipped |
-| Backend path not found | `--backend` invalid or no sibling `backend/` | Runs frontend-only analysis (`--depth shallow`) |
+| Backend path not found | `--backend` invalid or not auto-detected | Runs frontend-only analysis (`--depth shallow`) |
 | Import chain unresolvable | Complex re-exports or circular imports | Breaks after 10 levels; notes as "unresolvable" |
 | Bundler config syntax error | Invalid JS/TS in config | Notes config as "unreadable — manual review needed" |
 
@@ -825,18 +853,18 @@ Final Score = min(100, Score + Bonus)
 
 ---
 
-## Related Commands
+## Related Skills
 
-- `/qa-loading-error-empty` — Loading states, Suspense boundaries, error recovery (complements performance analysis)
-- `/qa-table-list` — Large data virtualization, pagination vs infinite scroll performance impact
-- `/qa-accessibility` — `prefers-reduced-motion`, animation alternatives, reduced data mode
-- `/qa-back-navigation` — Route transition performance, scroll restoration, navigation prefetch
+- `qa-loading-error-empty` — Loading states, Suspense boundaries, error recovery (complements performance analysis)
+- `qa-table-list` — Large data virtualization, pagination vs infinite scroll performance impact
+- `qa-accessibility` — `prefers-reduced-motion`, animation alternatives, reduced data mode
+- `qa-back-navigation` — Route transition performance, scroll restoration, navigation prefetch
 
 ---
 
 ## Tips
 
-1. **Static analysis has limits** — This command analyzes code patterns; actual performance requires runtime measurement with Lighthouse, WebPageTest, or real user monitoring (RUM)
+1. **Static analysis has limits** — This skill analyzes code patterns; actual performance requires runtime measurement with Lighthouse, WebPageTest, or real user monitoring (RUM)
 2. **Don't memoize everything** — `React.memo` has overhead; only memoize components that re-render frequently with the same props; profiling should guide optimization
 3. **Images are the lowest-hanging fruit** — Proper image optimization alone can improve LCP by 30-50%; start here for the biggest impact
 4. **Code splitting at route level is the minimum** — Every route should be a separate chunk; component-level splitting is a bonus for heavy components
