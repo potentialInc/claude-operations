@@ -1,0 +1,740 @@
+[
+  {
+    "ticket_id": "",
+    "title": "Notification issues",
+    "url": "https://www.notion.so/2cbb6d88d2cf80b49b29d39735831222",
+    "category": "Bug",
+    "project": "Roadmap",
+    "status": "",
+    "description": "Signup shows old notification data"
+  },
+  {
+    "ticket_id": "",
+    "title": "notification",
+    "url": "https://www.notion.so/1b0b6d88d2cf8000800ad07237129bbc",
+    "category": "Bug",
+    "project": "K Talk",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "Push notifications should be delivered regardless of phone state",
+    "url": "https://www.notion.so/2ccb6d88d2cf80019b04fe1f72ebf477",
+    "category": "Bug",
+    "project": "Roadmap",
+    "status": "",
+    "description": "Push notifications not working when screen off or app closed/background"
+  },
+  {
+    "ticket_id": "",
+    "title": "Notification is not clickable",
+    "url": "https://www.notion.so/1eab6d88d2cf804ab48cdec313058633",
+    "category": "Bug",
+    "project": "K Talk",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "Notification titles are not providing accurate information",
+    "url": "https://www.notion.so/238b6d88d2cf801ca8d6ca85c0f10ff5",
+    "category": "Bug",
+    "project": "Near Work",
+    "status": "",
+    "description": "Notification titles inaccurate. Not receiving notifications."
+  },
+  {
+    "ticket_id": "",
+    "title": "Every time user receives notification, a recommended job is created",
+    "url": "https://www.notion.so/238b6d88d2cf80e6b31eed255db60a41",
+    "category": "Bug",
+    "project": "Near Work",
+    "status": "",
+    "description": "Notification & Recommended job not working properly"
+  },
+  {
+    "ticket_id": "",
+    "title": "Notifications are not sent",
+    "url": "https://www.notion.so/1dfb6d88d2cf8094a69ddb16afe2590a",
+    "category": "Bug",
+    "project": "K Talk",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "Notification icon placement",
+    "url": "https://www.notion.so/1b1b6d88d2cf809e8fe8ed915cf3e6ba",
+    "category": "Bug",
+    "project": "K Talk",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "No follow-up action/notification with Refund request",
+    "url": "https://www.notion.so/2a3b6d88d2cf80cfbb38ec49480ee4e4",
+    "category": "Bug",
+    "project": "Ivory",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "1780",
+    "title": "notification number need the actual numbers",
+    "url": "https://www.notion.so/5dc9d000147c4ee285a1404e5aaf8dbc",
+    "category": "Bug",
+    "project": "Coaching Record",
+    "status": "Close",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "Notification shows two times",
+    "url": "https://www.notion.so/2a1b6d88d2cf80938b28f5a07013f63c",
+    "category": "Bug",
+    "project": "Ivory",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "Notification Page Not working",
+    "url": "https://www.notion.so/2a1b6d88d2cf805cbe05f07805b30e1c",
+    "category": "Bug",
+    "project": "Ivory",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "Notification number cut and static",
+    "url": "https://www.notion.so/58863d88138a4ecb812365d9b9bff84d",
+    "category": "Bug",
+    "project": "Coaching Record",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "Notification number cut and static (2)",
+    "url": "https://www.notion.so/7dc971e84b7947dd97391645078a8687",
+    "category": "Bug",
+    "project": "Coaching Record",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "Notification message is not Shown properly",
+    "url": "https://www.notion.so/2fbb6d88d2cf81a89ef0d235d9538533",
+    "category": "Bug",
+    "project": "Coaching Record",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "No new notification but showing red dot",
+    "url": "https://www.notion.so/2a3b6d88d2cf807897b9d19fe48f33f7",
+    "category": "Bug",
+    "project": "Ivory",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "Mark all as read in Notification Is not working",
+    "url": "https://www.notion.so/2fbb6d88d2cf8172169f9872768cefb",
+    "category": "Bug",
+    "project": "Coaching Record",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "There is no notification but still showing red dot",
+    "url": "https://www.notion.so/29cb6d88d2cf80aa8231dc4603674ddf",
+    "category": "Bug",
+    "project": "Ivory",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "1743",
+    "title": "Chat notification count number not clearing",
+    "url": "https://www.notion.so/1edd0154f61b4acc98b919e41cd3ae24",
+    "category": "Bug",
+    "project": "Coaching Record",
+    "status": "Close",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "Upload New File Issues",
+    "url": "https://www.notion.so/2feb6d88d2cf808d99aac775b30314fa",
+    "category": "Bug",
+    "project": "Elite4Print",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "Upload File Requirement Issue",
+    "url": "https://www.notion.so/2feb6d88d2cf807ebb6cdc102e401a55",
+    "category": "Bug",
+    "project": "Elite4Print",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "180",
+    "title": "uploading photos",
+    "url": "https://www.notion.so/1bbb6d88d2cf80689b36e0990853f27c",
+    "category": "Bug",
+    "project": "Entermong",
+    "status": "Close",
+    "description": "Photos uploaded without app requesting permission to read gallery"
+  },
+  {
+    "ticket_id": "",
+    "title": "Wrong UI and file upload on Approved design STL",
+    "url": "https://www.notion.so/2a1b6d88d2cf80f684c9f8460167fa8a",
+    "category": "Bug",
+    "project": "Ivory",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "fix image viewer",
+    "url": "https://www.notion.so/298b6d88d2cf808b90a6f1d5d9712d5d",
+    "category": "Bug",
+    "project": "Ivory",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "Profile image didn't change",
+    "url": "https://www.notion.so/1dfb6d88d2cf808f842be8b661abc514",
+    "category": "Bug",
+    "project": "K Talk",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "1462",
+    "title": "notice image not showing in the app",
+    "url": "https://www.notion.so/2cdb6d88d2cf801c9ca4f6d5e70b8840",
+    "category": "Bug",
+    "project": "Roadmap",
+    "status": "Close",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "Changing profile picture on iphone/Android by camera crashes app",
+    "url": "https://www.notion.so/a342324b53654fec86b7d74965ed8784",
+    "category": "Bug",
+    "project": "Coaching Record",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "Changing profile picture on iphone/Android by camera crashes app (2)",
+    "url": "https://www.notion.so/f63ed82bc8af40afaedd715cba4b43af",
+    "category": "Bug",
+    "project": "Coaching Record",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "Need a pagination system",
+    "url": "https://www.notion.so/239b6d88d2cf80ea2f3c948604a0943",
+    "category": "Bug",
+    "project": "Near Work",
+    "status": "",
+    "description": "user and admin panel pagination not working"
+  },
+  {
+    "ticket_id": "",
+    "title": "Pagination and search state reset after navigating back",
+    "url": "https://www.notion.so/2bfb6d88d2cf80999e33ebee7c384424",
+    "category": "Bug",
+    "project": "Ivory",
+    "status": "",
+    "description": "Back button resets page number and search results"
+  },
+  {
+    "ticket_id": "",
+    "title": "need Sorting by created at",
+    "url": "https://www.notion.so/229b6d88d2cf805c9709dd256ef59641",
+    "category": "Bug",
+    "project": "Onui CRM",
+    "status": "",
+    "description": "Latest items need to go to top"
+  },
+  {
+    "ticket_id": "",
+    "title": "website blog page don't have pagination",
+    "url": "https://www.notion.so/2a8b6d88d2cf802ea012f5786b97d034",
+    "category": "Bug",
+    "project": "Thrll",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "Order Status Update Not Reflected Instantly",
+    "url": "https://www.notion.so/23ab6d88d2cf80908906c34b7210e1c4",
+    "category": "Bug",
+    "project": "Ivory",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "All Filter in Order List Displays Only Pending Status",
+    "url": "https://www.notion.so/23ab6d88d2cf80debe6bc6cbd38eb0c8",
+    "category": "Bug",
+    "project": "Ivory",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "Information missing in Order edit / order details",
+    "url": "https://www.notion.so/29cb6d88d2cf8085b186d6a01a88158c",
+    "category": "Bug",
+    "project": "Ivory",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "New user should be display top of the list",
+    "url": "https://www.notion.so/216b6d88d2cf8010ab6ccf2dc3a342a8",
+    "category": "Bug",
+    "project": "Onui CRM",
+    "status": "",
+    "description": "New user not displayed at top of list"
+  },
+  {
+    "ticket_id": "",
+    "title": "Cancel order Error message and missing data",
+    "url": "https://www.notion.so/2a1b6d88d2cf8080a306dc8c3bb0a746",
+    "category": "Bug",
+    "project": "Ivory",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "Edit order selection/summary discrepancy",
+    "url": "https://www.notion.so/29db6d88d2cf80ed8bd6e38b19b4628b",
+    "category": "Bug",
+    "project": "Ivory",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "Searce bar is not working properly for Order List Page",
+    "url": "https://www.notion.so/23ab6d88d2cf802a8d90ca9b08d24922",
+    "category": "Bug",
+    "project": "Ivory",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "533",
+    "title": "Responsive Design, Hamburger menu icon is weird",
+    "url": "https://www.notion.so/210b6d88d2cf80ff8392e44e99cc8d37",
+    "category": "Bug",
+    "project": "Bright Pixel",
+    "status": "Close",
+    "description": "Hamburger Menu Icon Search Icon Padding issues"
+  },
+  {
+    "ticket_id": "1140",
+    "title": "Wrong digital analog logic",
+    "url": "https://www.notion.so/29db6d88d2cf8028b49fe58f1a538192",
+    "category": "Bug",
+    "project": "Ivory",
+    "status": "Close",
+    "description": "Digital analog should not be displayed but included based on implant position"
+  },
+  {
+    "ticket_id": "1402",
+    "title": "Parking lot UI issue still same",
+    "url": "https://www.notion.so/2c4b6d88d2cf80c9a993fb2d01dbc52c",
+    "category": "Bug",
+    "project": "Roadmap",
+    "status": "Close",
+    "description": "Alignment and padding issues"
+  },
+  {
+    "ticket_id": "328",
+    "title": "parent management main list sorting needs to be descending order",
+    "url": "https://www.notion.so/1e9b6d88d2cf803ab670cb64e9829442",
+    "category": "Bug",
+    "project": "Onui CRM",
+    "status": "Close",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "dashboard payment amount different with payment history",
+    "url": "https://www.notion.so/2c7b6d88d2cf802696fddce80f26dade",
+    "category": "Bug",
+    "project": "Roadmap",
+    "status": "",
+    "description": "Dashboard showing wrong payment amount (3 won vs 400,000+)"
+  },
+  {
+    "ticket_id": "",
+    "title": "Payment",
+    "url": "https://www.notion.so/1b0b6d88d2cf80f3817cff3b8cc2f9ee",
+    "category": "Bug",
+    "project": "K Talk",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "I didn't payment complete, but payment history has data",
+    "url": "https://www.notion.so/2cbb6d88d2cf80afa25ec22313190350",
+    "category": "Bug",
+    "project": "Roadmap",
+    "status": "",
+    "description": "Just registered card, not proceeded payment but history shows data"
+  },
+  {
+    "ticket_id": "",
+    "title": "App payment information table issue",
+    "url": "https://www.notion.so/2c9b6d88d2cf808c81c2c1f4b5f31bde",
+    "category": "Bug",
+    "project": "Roadmap",
+    "status": "",
+    "description": "Fields for free usage time and hourly price issues"
+  },
+  {
+    "ticket_id": "",
+    "title": "Invoice button display",
+    "url": "https://www.notion.so/29cb6d88d2cf8081aff9e70852752ea5",
+    "category": "Bug",
+    "project": "Ivory",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "Some payment redirecting to payment page again from stripe",
+    "url": "https://www.notion.so/298b6d88d2cf803191f2c6bb36c9d44b",
+    "category": "Bug",
+    "project": "Thrll",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "payment history still not showing",
+    "url": "https://www.notion.so/2c4b6d88d2cf80168a74e360fce6e4ef",
+    "category": "Bug",
+    "project": "Roadmap",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "Even the payment is cancelled it is showing cancel payment and current payment",
+    "url": "https://www.notion.so/2a0b6d88d2cf802ab733ca20d096477a",
+    "category": "Bug",
+    "project": "Ivory",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "pontic crown not counted in the price",
+    "url": "https://www.notion.so/29eb6d88d2cf806f827ac783350b129a",
+    "category": "Bug",
+    "project": "Ivory",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "payment cancellation feature",
+    "url": "https://www.notion.so/1bfb6d88d2cf809691eceed93993c171",
+    "category": "Bug",
+    "project": "K Talk",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "",
+    "title": "already paid this service issue",
+    "url": "https://www.notion.so/2c9b6d88d2cf801f9cb5e36ed156551d",
+    "category": "Bug",
+    "project": "Roadmap",
+    "status": "",
+    "description": "Paid vehicle still appears in search results"
+  },
+  {
+    "ticket_id": "1674",
+    "title": "Payment success is showing raw message",
+    "url": "https://www.notion.so/de6fc71f881e433da1b7324736ede380",
+    "category": "Bug",
+    "project": "Coaching Record",
+    "status": "Close",
+    "description": ""
+  },
+  {
+    "ticket_id": "673",
+    "title": "Not getting success message after payment",
+    "url": "https://www.notion.so/222b6d88d2cf803f8840c964535d17dc",
+    "category": "Bug",
+    "project": "Bright Pixel",
+    "status": "Close",
+    "description": "No success message or redirect after payment. No price data on page."
+  },
+  {
+    "ticket_id": "2094",
+    "title": "Coupon Code / Promotion — Unable to check out",
+    "url": "https://www.notion.so/2fbb6d88d2cf81759e50f7bf68cbee8d",
+    "category": "Bug",
+    "project": "Elite4Print",
+    "status": "Close",
+    "description": "Can not check out with coupon code. Cart shows 3 decimal places. Proceed to Checkout results in error."
+  },
+  {
+    "ticket_id": "2286",
+    "title": "Local Delivery Fees",
+    "url": "https://www.notion.so/2feb6d88d2cf80648315e4ef84335754",
+    "category": "Bug",
+    "project": "Elite4Print",
+    "status": "Close",
+    "description": "Local delivery fees not shown in invoice"
+  },
+  {
+    "ticket_id": "2309",
+    "title": "Add Calculated Shipping Weight to Work Order",
+    "url": "https://www.notion.so/2feb6d88d2cf8068af14cc7a25b796d8",
+    "category": "Bug",
+    "project": "Elite4Print",
+    "status": "Close",
+    "description": "Need calculated vs actual shipping weights/rates comparison"
+  },
+  {
+    "ticket_id": "",
+    "title": "Missing Shipping price in content management / price estimate",
+    "url": "https://www.notion.so/29fb6d88d2cf8067bdb5ca63613c1845",
+    "category": "Bug",
+    "project": "Ivory",
+    "status": "",
+    "description": ""
+  },
+  {
+    "ticket_id": "1478",
+    "title": "Need to check Calllog management filter",
+    "url": "https://www.notion.so/2e7b6d88d2cf807d835cfb459f355f99",
+    "category": "Bug",
+    "project": "Onui CRM",
+    "status": "Ready for test",
+    "description": "Filter is not apply"
+  },
+  {
+    "ticket_id": "1401",
+    "title": "Map marker issues",
+    "url": "https://www.notion.so/2c4b6d88d2cf80da8d70de310ba09107",
+    "category": "Bug",
+    "project": "Roadmap",
+    "status": "Close",
+    "description": "Should be list view"
+  },
+  {
+    "ticket_id": "186",
+    "title": "notice creation",
+    "url": "https://www.notion.so/1bcb6d88d2cf8006848fe3d96e478b97",
+    "category": "Bug",
+    "project": "Entermong",
+    "status": "Close",
+    "description": "Notice creation success message shown but missing in notice list"
+  },
+  {
+    "ticket_id": "869",
+    "title": "lead revival playbook activity log",
+    "url": "https://www.notion.so/247b6d88d2cf80ccb2c0f75f48014bad",
+    "category": "Bug",
+    "project": "Onui CRM",
+    "status": "Close",
+    "description": "Activity log should be revival, not just update"
+  },
+  {
+    "ticket_id": "508",
+    "title": "task reminder message is not working",
+    "url": "https://www.notion.so/210b6d88d2cf8023850ce1f69080f24c",
+    "category": "Bug",
+    "project": "Onui CRM",
+    "status": "Close",
+    "description": ""
+  },
+  {
+    "ticket_id": "325",
+    "title": "Need to change text format",
+    "url": "https://www.notion.so/1dfb6d88d2cf80feb13ee609f48a2551",
+    "category": "Bug",
+    "project": "K Talk",
+    "status": "Close",
+    "description": ""
+  },
+  {
+    "ticket_id": "145",
+    "title": "Notice page",
+    "url": "https://www.notion.so/1b1b6d88d2cf80c4af48ebbf03f94e69",
+    "category": "Bug",
+    "project": "K Talk",
+    "status": "Close",
+    "description": "Need to differentiate read/unread notices, change date format"
+  },
+  {
+    "ticket_id": "1452",
+    "title": "Reward request cannot possible to 1,000 amount",
+    "url": "https://www.notion.so/2cbb6d88d2cf8032adb7e99d3b30e7ca",
+    "category": "Bug",
+    "project": "Roadmap",
+    "status": "Close",
+    "description": "Amount should be 5,000/10,000/15,000"
+  },
+  {
+    "ticket_id": "1424",
+    "title": "lead create api has some problem",
+    "url": "https://www.notion.so/2c9b6d88d2cf803d89b5e41a4f2586e1",
+    "category": "Bug",
+    "project": "Onui CRM",
+    "status": "Close",
+    "description": "Lead not created but returns success message"
+  },
+  {
+    "ticket_id": "244",
+    "title": "problem while creating new lead",
+    "url": "https://www.notion.so/1d7b6d88d2cf8072a26cecb682316bfe",
+    "category": "Bug",
+    "project": "Onui CRM",
+    "status": "Close",
+    "description": "Problem happening after the fix"
+  },
+  {
+    "ticket_id": "1465",
+    "title": "parking lot detail page design detail",
+    "url": "https://www.notion.so/2d2b6d88d2cf802d9da3cc64e86e0cf6",
+    "category": "Bug",
+    "project": "Roadmap",
+    "status": "Close",
+    "description": "icon align, text size issues"
+  },
+  {
+    "ticket_id": "1489",
+    "title": "call log management page",
+    "url": "https://www.notion.so/2e8b6d88d2cf8033a296fd72b19e8c30",
+    "category": "Bug",
+    "project": "Onui CRM",
+    "status": "Close",
+    "description": "Diagnosis filter auto reset, duplicate date filter, column size mismatch"
+  },
+  {
+    "ticket_id": "561",
+    "title": "auth-payment",
+    "url": "https://www.notion.so/21bb6d88d2cf807e824de69e23665b2c",
+    "category": "Bug",
+    "project": "K Talk",
+    "status": "Close",
+    "description": "Pricing section layout needs reorganization"
+  },
+  {
+    "ticket_id": "441",
+    "title": "UI Issue in Class Detail Page",
+    "url": "https://www.notion.so/201b6d88d2cf80d081c2e481fdb86cf6",
+    "category": "Bug",
+    "project": "K Talk",
+    "status": "Close",
+    "description": "Student List weird when no profile image set up"
+  },
+  {
+    "ticket_id": "690",
+    "title": "There is no real images of Jeju Campus",
+    "url": "https://www.notion.so/223b6d88d2cf8071b2e5cbef5f7bdd94",
+    "category": "Bug",
+    "project": "K Talk",
+    "status": "Close",
+    "description": "Missing real images for Jeju Campus"
+  },
+  {
+    "ticket_id": "579",
+    "title": "All of contact us button should be - enroll now",
+    "url": "https://www.notion.so/21bb6d88d2cf8037b755d38c941292a1",
+    "category": "Bug",
+    "project": "K Talk",
+    "status": "Close",
+    "description": "All buttons should be 'Enroll Now' and redirect to registration page"
+  },
+  {
+    "ticket_id": "341",
+    "title": "Change Title of Class in My Schedule",
+    "url": "https://www.notion.so/1eab6d88d2cf806fa484fdc2aef162aa",
+    "category": "Bug",
+    "project": "K Talk",
+    "status": "Close",
+    "description": "Class title format change needed"
+  },
+  {
+    "ticket_id": "1490",
+    "title": "lead management page",
+    "url": "https://www.notion.so/2e8b6d88d2cf80378406d9fb2f925d8c",
+    "category": "Bug",
+    "project": "Onui CRM",
+    "status": "Close",
+    "description": "diagnosis auto reset"
+  },
+  {
+    "ticket_id": "835",
+    "title": "Schedule management Team/cell",
+    "url": "https://www.notion.so/23ab6d88d2cf80bea7c6e2bcc8074388",
+    "category": "Bug",
+    "project": "Onui CRM",
+    "status": "Close",
+    "description": "Showing 1depth/2depth instead of 3depth/4depth"
+  },
+  {
+    "ticket_id": "1289",
+    "title": "Can't create the Task",
+    "url": "https://www.notion.so/2a8b6d88d2cf804793c9dcfea5f81181",
+    "category": "Bug",
+    "project": "Onui CRM",
+    "status": "Close",
+    "description": "Error: lost my lead funnel"
+  },
+  {
+    "ticket_id": "1290",
+    "title": "Zoom limitation",
+    "url": "https://www.notion.so/2a8b6d88d2cf80b784bfec47ebd09354",
+    "category": "Bug",
+    "project": "Roadmap",
+    "status": "Close",
+    "description": "Need to extend zoom"
+  },
+  {
+    "ticket_id": "844",
+    "title": "Send Tally form message template",
+    "url": "https://www.notion.so/23eb6d88d2cf80b8ab2cdbc5bd3fc963",
+    "category": "Bug",
+    "project": "Onui CRM",
+    "status": "Close",
+    "description": "Need to delete red box"
+  }
+]

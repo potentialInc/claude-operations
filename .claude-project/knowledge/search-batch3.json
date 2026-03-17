@@ -1,0 +1,192 @@
+[
+  {
+    "ticket_id": "679",
+    "title": "Wish list counting is not working properly",
+    "url": "https://www.notion.so/223b6d88d2cf807bac7dc8f883f40c45",
+    "category": "Bug",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/183b6d88d2cf8091bbebefce8f889c4d"
+  },
+  {
+    "ticket_id": "484",
+    "title": "admin can't create the admin",
+    "url": "https://www.notion.so/20db6d88d2cf801fb98ee9d4c1247211",
+    "category": "Bug",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/1a0b6d88d2cf8059a1cbc90d59b17a59"
+  },
+  {
+    "ticket_id": "799",
+    "title": "My info permission : checked 1st",
+    "url": "https://www.notion.so/239b6d88d2cf803188d6f738a477cc3d",
+    "category": "Bug",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/1a0b6d88d2cf8059a1cbc90d59b17a59"
+  },
+  {
+    "ticket_id": "1474",
+    "title": "registere Phone number is not working",
+    "url": "https://www.notion.so/2d5b6d88d2cf80f3b56fc629e71ec0c1",
+    "category": "Bug",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/23eb6d88d2cf8004943cdf95889a0abe"
+  },
+  {
+    "ticket_id": "604",
+    "title": "task reminder is not working",
+    "url": "https://www.notion.so/21db6d88d2cf805da1ddc75612280052",
+    "category": "Bug",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/1a0b6d88d2cf8059a1cbc90d59b17a59"
+  },
+  {
+    "ticket_id": "727",
+    "title": "Task time, input field is not working properly",
+    "url": "https://www.notion.so/229b6d88d2cf80d7bd0cf7323bd4e5a1",
+    "category": "Bug",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/1a0b6d88d2cf8059a1cbc90d59b17a59"
+  },
+  {
+    "ticket_id": "1160",
+    "title": "Issue on order details after data is revised with back buttons.",
+    "url": "https://www.notion.so/29eb6d88d2cf8093972dc4ef9d03ac40",
+    "category": "Bug",
+    "description": "The data does not get override when we change the inputs to new record by using \"back\" button, and the order details are kept from original data. Both order details and price are paired with original data and doesn't get override with the new set of records.",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/22bb6d88d2cf809a9eb6ce77d8fc51b4"
+  },
+  {
+    "ticket_id": "2131",
+    "title": "Contact page submission success message need correction",
+    "url": "https://www.notion.so/2fbb6d88d2cf818dbafaee5fc903d958",
+    "category": "",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/15ab6d88d2cf808c87c8fd96a3752bd0"
+  },
+  {
+    "ticket_id": "2099",
+    "title": "Cutoff time missing from product pages",
+    "url": "https://www.notion.so/2fbb6d88d2cf81459022e84d7e8dbf49",
+    "category": "",
+    "description": "On each of the product pages (ex. new.elite4print.com/product/59) it does display turnaround and due date which is good but missing the cutoff time (on current website it will show in red next to the due date: Upload by 1:30PM PST, or Upload by 3:00pm PST or Upload by 6:00PM PST, depending on the product)",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/15ab6d88d2cf808c87c8fd96a3752bd0"
+  },
+  {
+    "ticket_id": "856",
+    "title": "Handle Duplicate Learning Diagnosis Submission",
+    "url": "https://www.notion.so/240b6d88d2cf80e4b358fde693d8a73d",
+    "category": "Bug",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/1a0b6d88d2cf8059a1cbc90d59b17a59"
+  },
+  {
+    "ticket_id": "1349",
+    "title": "Change the word",
+    "url": "https://www.notion.so/2aeb6d88d2cf80b19f23db1684ff8b7a",
+    "category": "Bug",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/23eb6d88d2cf8004943cdf95889a0abe"
+  },
+  {
+    "ticket_id": "1350",
+    "title": "Change the word",
+    "url": "https://www.notion.so/2aeb6d88d2cf8000ad81ec25b659de06",
+    "category": "Bug",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/23eb6d88d2cf8004943cdf95889a0abe"
+  },
+  {
+    "ticket_id": "1101",
+    "title": "Bridge & Implant bridge order logic",
+    "url": "https://www.notion.so/29cb6d88d2cf808cb0e4c17de8cd30ba",
+    "category": "Bug",
+    "description": "Based on the order logic (Order Rules: row #10), IPS e.Max should be unable to select (display, but cannot click) with a crown range of 4 or more.",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/22bb6d88d2cf809a9eb6ce77d8fc51b4"
+  },
+  {
+    "ticket_id": "966",
+    "title": "text capitalization needs correction",
+    "url": "https://www.notion.so/254b6d88d2cf8099b09eeefd93bcba96",
+    "category": "Bug",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/21cb6d88d2cf806c843cf1c925133bed"
+  },
+  {
+    "ticket_id": "2966",
+    "title": "Full Preview Option Not Working",
+    "url": "https://www.notion.so/30cb6d88d2cf81b4bce2d65f1652d2d3",
+    "category": "Bug",
+    "description": "",
+    "dev_comment": "Fixed: DesignPreviewService now falls back to querying designPageRepository directly when pages are not loaded via relation. This resolves multi-page designs not rendering in full preview. Also registered DesignPage repository in DesignModule.",
+    "status": "Close",
+    "project": "https://www.notion.so/2f6b6d88d2cf809fa927dbbdba985c9c"
+  },
+  {
+    "ticket_id": "1438",
+    "title": "operation hour",
+    "url": "https://www.notion.so/2cab6d88d2cf80eca8cfd8147003cb26",
+    "category": "Bug",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/23eb6d88d2cf8004943cdf95889a0abe"
+  },
+  {
+    "ticket_id": "1296",
+    "title": "Find feature",
+    "url": "https://www.notion.so/2a8b6d88d2cf80bd9ddcf3166e32e6ab",
+    "category": "Bug",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/23eb6d88d2cf8004943cdf95889a0abe"
+  },
+  {
+    "ticket_id": "900",
+    "title": "Validation error message needs minor modification",
+    "url": "https://www.notion.so/24bb6d88d2cf802680bbeee02c8953fe",
+    "category": "Bug",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/21cb6d88d2cf806c843cf1c925133bed"
+  },
+  {
+    "ticket_id": "1232",
+    "title": "Missing Edit order on Drafted order",
+    "url": "https://www.notion.so/2a3b6d88d2cf80c7a62ad543df0b1fc1",
+    "category": "Bug",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/22bb6d88d2cf809a9eb6ce77d8fc51b4"
+  }
+]

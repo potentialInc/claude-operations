@@ -1,0 +1,668 @@
+[
+  {
+    "ticket_id": "3078",
+    "title": "SMS service not set up — phone OTP does not work",
+    "url": "https://www.notion.so/319b6d88d2cf81288c58e580cef5509b",
+    "description": "",
+    "dev_comment": "Skipped - requires SMS provider business decision (e.g., Twilio, AWS SNS, Korean provider). No code changes needed until provider is selected.",
+    "status": "Backlog",
+    "feature": "SMS / OTP"
+  },
+  {
+    "ticket_id": "3070",
+    "title": "Coach signup form does not create an account",
+    "url": "https://www.notion.so/319b6d88d2cf81098411f9312390726a",
+    "description": "",
+    "dev_comment": "Already fixed in commit 7d790fe (2026-03-04). The handleSubmit was just calling navigate(\"/login\") without any API call. Fixed by adding authService.register() with name, email, password, role=COACH. Also added loading state, error handling, and success message UI. Fix is on both ashadul.dev and dev branches.",
+    "status": "Close",
+    "feature": "Coach Signup"
+  },
+  {
+    "ticket_id": "3073",
+    "title": "Admin patient table — Export button does nothing",
+    "url": "https://www.notion.so/319b6d88d2cf8109ad64c3f9840cae48",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": "Admin Patient Management"
+  },
+  {
+    "ticket_id": "3079",
+    "title": "Remove unused counter code (counterSlice and Counter component)",
+    "url": "https://www.notion.so/319b6d88d2cf8120b6e0f91326d4a25b",
+    "description": "",
+    "dev_comment": "Removed unused counter boilerplate code. Deleted counterSlice.ts and Counter.tsx, removed counterReducer from rootReducer.ts. Frontend build verified.",
+    "status": "Close",
+    "feature": "Code Cleanup"
+  },
+  {
+    "ticket_id": "3072",
+    "title": "Admin coach table — Export button does nothing",
+    "url": "https://www.notion.so/319b6d88d2cf8127bddffa8ce5d0d78e",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": "Admin Coach Management"
+  },
+  {
+    "ticket_id": "3071",
+    "title": "Coach signup — license number and hospital code fields are never saved",
+    "url": "https://www.notion.so/319b6d88d2cf81b58a12e8b6ce3d8a30",
+    "description": "",
+    "dev_comment": "Fixed full-stack pipeline: Added licenseNumber and hospitalCode columns to User entity, RegisterDto, auth.service register method, frontend RegisterRequest type, and coach signup form handleSubmit. Generated migration. Files: user.entity.ts, register.dto.ts, auth.service.ts, auth.d.ts, coach.tsx",
+    "status": "Close",
+    "feature": "Coach Signup"
+  },
+  {
+    "ticket_id": "3080",
+    "title": "Coach and patient profile pages — user cannot edit their information",
+    "url": "https://www.notion.so/319b6d88d2cf81cd9c40ea07b59f001d",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": "Profile"
+  },
+  {
+    "ticket_id": "3075",
+    "title": "Patient notifications — clicking a notification does not navigate anywhere",
+    "url": "https://www.notion.so/319b6d88d2cf81e0a7a5d0ae831b05b9",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": "Patient Notifications"
+  },
+  {
+    "ticket_id": "3077",
+    "title": "Coach patient list — Sort button does nothing",
+    "url": "https://www.notion.so/319b6d88d2cf81f39e66ec00182383b2",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": "Coach Patients"
+  },
+  {
+    "ticket_id": "3056",
+    "title": "Dynamic input fields based on Role selection in 'Create New User' modal",
+    "url": "https://www.notion.so/318b6d88d2cf8088913bff69908daf11",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3054",
+    "title": "backbutton redirection issue",
+    "url": "https://www.notion.so/318b6d88d2cf80b6b857f20e86f3f9bd",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3053",
+    "title": "The individual intensity doesn’t show the exercise record in admin dashboard.",
+    "url": "https://www.notion.so/318b6d88d2cf807a8430c7dce096bb78",
+    "description": "",
+    "dev_comment": "Fixed: handleSimpleRating in exercise-detail.tsx was ignoring the rating param (prefixed _ as unused). Added RATING_TO_INTENSITY map (1=LOW/Easy, 2=MEDIUM/Normal, 3=HIGH/Difficult) and passed individualIntensity to logExercise.mutateAsync(). Admin panel ExerciseCell already displays intensity badges correctly - no backend changes needed. File: frontend/app/pages/patient/exercise-detail.tsx",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3049",
+    "title": "Layout breaks (Text wraps) when the current date is focused",
+    "url": "https://www.notion.so/318b6d88d2cf80589c5af45b25a47b1d",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3032",
+    "title": "Inconsistent Session Bar Width in Calendar",
+    "url": "https://www.notion.so/317b6d88d2cf80e18aeccd8371fad1a1",
+    "description": "",
+    "dev_comment": "Fixed by adding display: block to FullCalendar event objects. Timed events in month view were rendering as dot-events (content-width) instead of block-events (full cell width). File: frontend-dashboard/app/components/admin/calendar/CalendarContainer.tsx",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3031",
+    "title": "'Deselect All' filter not working on Sessions Calendar",
+    "url": "https://www.notion.so/317b6d88d2cf8080b7cde44cfface40b",
+    "description": "",
+    "dev_comment": "Fixed two bugs:\n1. CalendarContainer.tsx: filteredMeetings returned ALL meetings when selectedCoachIds was empty. Changed to return [] instead.\n2. home.tsx: API query fetched all meetings when no coaches selected. Added enabled: selectedCoachIds.length > 0 to skip the request.\n\nFiles modified:\n- frontend-dashboard/app/components/admin/calendar/CalendarContainer.tsx\n- frontend-dashboard/app/pages/admin/home.tsx",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3030",
+    "title": "Fix table header at the top while scrolling",
+    "url": "https://www.notion.so/314b6d88d2cf803d8312fc71162faa4f",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3025",
+    "title": "Wrong Redirection for \"View Session Records”",
+    "url": "https://www.notion.so/314b6d88d2cf80bba89beb9965be016f",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3024",
+    "title": "Add a checkmarker",
+    "url": "https://www.notion.so/314b6d88d2cf806fa9d1dcfcce00513b",
+    "description": "",
+    "dev_comment": "Fixed 2 issues:\n1. UI: Checkmark icon now displays inside checkbox when checked (fixed Tailwind CSS targeting)\n2. Auto-login: Cookie now persists for 30 days when rememberMe is enabled (added maxAge to httpOnly cookie)\n\nFiles changed:\n- frontend/app/pages/auth/login.tsx\n- backend/src/core/interceptors/set-token.interceptor.ts",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3023",
+    "title": "Validation issue on the survey",
+    "url": "https://www.notion.so/314b6d88d2cf8093a355d95fedec1522",
+    "description": "",
+    "dev_comment": "Added onKeyDown handlers to both walking minutes and step count inputs to block non-numeric characters (e, E, +, -, .). File: frontend/app/pages/patient/survey.tsx",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3022",
+    "title": "Restrict access to future exercises and prevent editing past records",
+    "url": "https://www.notion.so/313b6d88d2cf8028b76cc40dbdd9d173",
+    "description": "",
+    "dev_comment": "Implemented date-based access control:\n\nBackend:\n- Added DateUtil.isToday() and assertTodayOnly() guards\n- POST /exercise-logs rejects non-today dates (400)\n- POST /exercise-days/complete rejects non-today dates (400)\n- POST /surveys/daily rejects non-today dates (400)\n\nFrontend (patient home page):\n- Future dates: Exercise card shows lock icon, non-clickable. Survey shows Scheduled.\n- Past dates: Exercise card is read-only with neutral styling.\n- Today: No changes, fully functional.\n- Zoom sessions: Remain accessible on all dates.\n\nFiles modified:\n- backend/src/core/utils/date.util.ts\n- backend/src/modules/exercises/services/exercise-log.service.ts\n- backend/src/modules/exercises/services/exercise-day.service.ts\n- backend/src/modules/surveys/services/daily-survey.service.ts\n- frontend/app/pages/patient/home.tsx\n- frontend/app/i18n/locales/en.json\n- frontend/app/i18n/locales/ko.json",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3021",
+    "title": "Exercise Count Mismatch",
+    "url": "https://www.notion.so/313b6d88d2cf80cd84e8ec6da727e5d7",
+    "description": "",
+    "dev_comment": "Fixed getDaySummary() in exercise-day.service.ts to always validate totalCount against current active prescriptions instead of returning stale ExerciseDay records. Now if prescriptions are deactivated/removed, the count correctly reflects 0 and returns null.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3017",
+    "title": "Date Dividers are Missing",
+    "url": "https://www.notion.so/313b6d88d2cf80dbb7d1eb56cee34321",
+    "description": "",
+    "dev_comment": "Added date dividers to chat message list in both patient and coach views.\n\nFiles changed:\n- NEW: frontend/app/components/chat/chat-date-divider.tsx (ChatDateDivider component + helpers)\n- MOD: frontend/app/pages/patient/chat-detail.tsx (date divider rendering)\n- MOD: frontend/app/pages/coach/chat-detail.tsx (date divider rendering)\n\nShows \"Today\", \"Yesterday\", or full date (e.g. 2026년 2월 25일) between messages from different days. Supports KO/EN i18n. Build verified.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3001",
+    "title": "Indicator Mismatch with real data",
+    "url": "https://www.notion.so/312b6d88d2cf80949c84f933eb996896",
+    "description": "",
+    "dev_comment": "Fixed: 3 bugs causing calendar dot indicators to not sync with real data.\n\n1. Survey cache invalidation - useSubmitSurvey now invalidates all survey queries (surveyKeys.all) so calendar dots refresh after submission\n2. Timezone mismatch - useSurveyStatusByDate now uses local timezone instead of UTC for today detection\n3. Date parsing - Month view dot indicators now use string-based date extraction instead of fragile new Date() parsing\n\nFiles modified:\n- frontend/app/services/httpServices/queries/useSurveys.ts\n- frontend/app/pages/patient/home.tsx",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2997",
+    "title": "Fix data sync issues between Calendar and Zoom session info",
+    "url": "https://www.notion.so/311b6d88d2cf8073b8b1d3dd0f20d77f",
+    "description": "",
+    "dev_comment": "## Fix Implemented\n\n**Files Modified:**\n- backend/src/modules/meetings/repositories/zoom-meeting.repository.ts\n- backend/src/modules/exercises/services/exercise-day.service.ts\n- frontend/app/pages/patient/home.tsx\n\n**Changes:**\n1. [Backend] zoom-meeting.repository.ts: Fixed findByPatientAndDateRange and findByCoachAndDateRange to normalize dates to start-of-day (00:00:00.000) and end-of-day (23:59:59.999) before querying with Between(). Previously, passing the same date as both startDate and endDate would only match meetings at exactly midnight UTC, missing all real meetings on that day.\n\n2. [Backend] exercise-day.service.ts: Modified getDaySummary to return a synthetic summary object with prescription-based totalCount and log-based completedCount when no ExerciseDay record exists for the selected date. Previously returned null for any date where the patient had not pressed the complete button, causing the exercise card to show 0/0 completed with 0% progress even when active prescriptions existed.\n\n3. [Frontend] home.tsx: Stabilized the today reference using useMemo(() => new Date(), []) to prevent unnecessary re-renders caused by a new Date object being created on every render cycle.\n\n**Pages Affected:** /patient (home page)\n\n**Commit:** fix: correct date-based schedule display on patient home page\n\n---\nUpdated by Claude Code",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2995",
+    "title": "Add the Eng language in this app",
+    "url": "https://www.notion.so/311b6d88d2cf80c487c6c571fba3a3d2",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2994",
+    "title": "The word displayed is incorrect",
+    "url": "https://www.notion.so/311b6d88d2cf80539bdbc7587d32fa53",
+    "description": "",
+    "dev_comment": "Fix implemented: Changed exercise button text logic in patient home page. When today is selected and no exercises have been started (completedCount === 0), the button now shows '시작하기' instead of '이어서 하기'. '이어서 하기' is only shown when completedCount > 0 (user has started at least one exercise). File: frontend/app/pages/patient/home.tsx line 519.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2993",
+    "title": "Exercise count is not updated on the home screen",
+    "url": "https://www.notion.so/311b6d88d2cf8015a5f7cfe0d613931a",
+    "description": "",
+    "dev_comment": "Root Cause: Timezone mismatch in date parsing. new Date('YYYY-MM-DD') parses as UTC midnight, which shifts to the previous day in UTC+9 (Korea). This caused countActiveForPatient() to query the wrong date and return 0 prescriptions.\n\nFix: Created DateUtil.parseDateString() utility that parses date strings as local midnight. Applied across all exercise controllers and services.\n\nFiles Changed: date.util.ts (new), exercise-day.controller.ts, exercise-log.controller.ts, exercise-prescription.controller.ts, exercise-day.service.ts, exercise-log.service.ts",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2982",
+    "title": "Delete notification icon",
+    "url": "https://www.notion.so/30fb6d88d2cf809fb4adf331323b242c",
+    "description": "",
+    "dev_comment": "Removed the notification bell icon button from the /patient/survey page header. The button had no click handler and was non-functional. Cleaned up the unused Bell import from lucide-react.\n\nFiles modified:\n- frontend/app/pages/patient/survey.tsx\n\nCommit: fix: remove notification icon from patient survey page",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2980",
+    "title": "Adjust the video height",
+    "url": "https://www.notion.so/30fb6d88d2cf80f0a6acd48f185e36b0",
+    "description": "",
+    "dev_comment": "Fixed exercise video layout to be full-width edge-to-edge. Removed padding, borders, and rounded corners from video container. Content below video retains proper padding. Container now uses flex-1 for proper height fill. Commit: 5e429d1",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2978",
+    "title": "Wrong Sender Label",
+    "url": "https://www.notion.so/30fb6d88d2cf8038a2fef6505e97b099",
+    "description": "",
+    "dev_comment": "Root Cause: Patient chat-detail.tsx identified sender role using ID comparison only (senderId === coachId). When admin sends messages from dashboard and is also the coach for that room, messages appear as Coach instead of Admin.\n\nFix:\n1. Backend: Added sender.role to Socket.IO broadcasts (admin.service.ts + chat.gateway.ts)\n2. Backend: Fixed getRoom endpoint to load patient/coach relations\n3. Frontend: Updated ChatMessage.sender type to include role field\n4. Frontend: chat-detail.tsx now checks sender.role === 1 (ADMIN) before coachId comparison\n\nFiles: chat-detail.tsx, chat.d.ts, admin.service.ts, chat.gateway.ts, chat.controller.ts",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2977",
+    "title": "Message Sorting Issue",
+    "url": "https://www.notion.so/30fb6d88d2cf800a80a6e26227ccd554",
+    "description": "",
+    "dev_comment": "Fixed: The backend chat message query (findByRoomId) was returning messages in DESC order (newest first) for pagination, but the frontend rendered the array as-is without reversing. This caused messages to appear newest-at-top instead of the standard oldest-at-top chat order.\n\nAdded .reverse() after the query so messages return in chronological order (oldest to newest). This fix applies to both patient and coach chat pages.\n\nFile changed: backend/src/modules/chat/repositories/chat-message.repository.ts",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2976",
+    "title": "Coach chat room is displayed as a seperated window",
+    "url": "https://www.notion.so/30db6d88d2cf8004a840d68934e1ad69",
+    "description": "",
+    "dev_comment": "Removed redundant max-w-md mx-auto wrapper div from CoachChatDetail component. The coach layout already provides these container styles, so the double wrapping created a box-within-a-box effect with extra margins. Now uses React fragments like PatientChatDetail.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2975",
+    "title": "Mismatch between the selected date and the clicking date.",
+    "url": "https://www.notion.so/30db6d88d2cf803095cdfd810cbf5081",
+    "description": "",
+    "dev_comment": "Fixed timezone off-by-one bug in patient home calendar. handleDayClick used toISOString() which converts to UTC, shifting dates backward by 1 day in KST. Replaced with direct string formatting (YYYY-MM-DD). File: frontend/app/pages/patient/home.tsx (line 276-280)",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2961",
+    "title": "Dynamic Button Label based on Exercise Sequence",
+    "url": "https://www.notion.so/30cb6d88d2cf809a9442e6c185d577fb",
+    "description": "",
+    "dev_comment": "Changed button text in exercise-detail.tsx to show \"다음 운동\" (Next Exercise) for first/middle exercises and \"운동 종료\" (Finish) for the last exercise. Uses existing isLastExercise variable. Navigation (next/previous) was already working correctly.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2960",
+    "title": "Reduce the vertical space",
+    "url": "https://www.notion.so/30cb6d88d2cf803197e7eb3597306243",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2951",
+    "title": "Remove the hard-coding and display actual data",
+    "url": "https://www.notion.so/30cb6d88d2cf80ce9908e7d596105c92",
+    "description": "",
+    "dev_comment": "Removed hardcoded empty exercises array from exercise history page. Expanded day cards now lazy-load actual prescription data via GET /exercise-prescriptions/my?date=. Each exercise shows title, duration, sets, completion status, and difficulty. Also fixed stale React Query key for month navigation.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2940",
+    "title": "Failed to set a coach",
+    "url": "https://www.notion.so/309b6d88d2cf8046bbd8f57d30731a9e",
+    "description": "",
+    "dev_comment": "Root cause: Patient detail page sends fullName, phone, birth fields but UpdateUserDto only accepted username, email, role, coachId. Global ValidationPipe with forbidNonWhitelisted:true rejected the request.\n\nFix:\n- Added fullName, phone, birth to UpdateUserDto\n- Updated AdminService.updateUser() to persist new fields\n- Added duplicate coach assignment guard\n- Updated frontend UpdateUserRequest type\n- Fixed patient-detail.tsx mutation typing\n\nFiles: update-user.dto.ts, admin.service.ts, admin.d.ts, patient-detail.tsx",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2921",
+    "title": "New users’s Days elapsed is invalid (minus value)",
+    "url": "https://www.notion.so/306b6d88d2cf802e8e72ec7a4a54ab40",
+    "description": "",
+    "dev_comment": "Fixed daysElapsed calculation — registrationDate was not zeroed to midnight like `now`, causing negative values for same-day users. Added `registrationDate.setHours(0, 0, 0, 0)` in both `mapUserWithAssignment()` and `getPatientsWithTodayPain()` in admin.service.ts.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2918",
+    "title": "Reduce the vertical space",
+    "url": "https://www.notion.so/306b6d88d2cf800ea3baed9de9144652",
+    "description": "",
+    "dev_comment": "Reduced vertical spacing on exercise detail page (/patient/exercise/:id). Changes: (1) Video changed from square to 16:9 aspect ratio, (2) Reduced all vertical margins and padding, (3) Removed mt-auto from navigation buttons so they sit directly below the timer instead of being pushed to the bottom. All elements now fit on one mobile screen without scrolling.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2917",
+    "title": "Exercise timer should reset for new exercises but save/resume for previous ones",
+    "url": "https://www.notion.so/306b6d88d2cf8085b201f6ab970fedf0",
+    "description": "",
+    "dev_comment": "Fixed per-exercise timer tracking in exercise-detail.tsx.\n\nChanges:\n1. Added useEffect on exercise ID change that resets timer to 00:00 for new exercises or restores saved time from DB logs for previously-completed exercises\n2. Timer value (delta only) is now sent to backend via timeSpentSeconds in logExercise mutation\n3. Backend accumulation logic was already correct - this was purely a frontend implementation gap\n\nFile modified: frontend/app/pages/patient/exercise-detail.tsx",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2916",
+    "title": "Remove the space in patient name",
+    "url": "https://www.notion.so/306b6d88d2cf80d9a897ea4a7abbd105",
+    "description": "",
+    "dev_comment": "Fixed: Replaced firstName+lastName concatenation with fullName field in prescription-management.tsx. The page was manually joining firstName and lastName with a space, causing extra whitespace when one field was empty. Updated getPatientName(), getPrescribedByName(), and search filter to use fullName — consistent with all other dashboard pages.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2915",
+    "title": "Expand selection exercise list ",
+    "url": "https://www.notion.so/306b6d88d2cf80bebfe8ca180756a19a",
+    "description": "",
+    "dev_comment": "Fixed: Increased min-h from 150px to 300px on the selected exercises section in PrescriptionEditorPanel.tsx (line 137) to show 5 exercises by default. File: frontend-dashboard/app/components/prescriptions/PrescriptionEditorPanel.tsx",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2914",
+    "title": "Timeline dot-lined overlap event item",
+    "url": "https://www.notion.so/306b6d88d2cf806397a3cfdf0abbb918",
+    "description": "",
+    "dev_comment": "Fixed in CalendarStyles.css:\n1. Changed --fc-page-bg-color from transparent to var(--background) - restores 1px solid outline (box-shadow) around events that creates visible gaps between adjacent events in weekly/day views\n2. Added solid background-color: var(--card) to .fc-timegrid-event - prevents dotted grid lines from showing through events\n3. Fixed all hsl(var(--...)) patterns to var(--...) for Tailwind CSS v4 compatibility (oklch color values were being wrapped in hsl() which is invalid)",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2904",
+    "title": "keep only \"Detailed\" view",
+    "url": "https://www.notion.so/303b6d88d2cf8093b674ced13e0e9a91",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2900",
+    "title": "Improve Calendar event layout and Fix line visibility",
+    "url": "https://www.notion.so/303b6d88d2cf8088bd49f36c8548cbcd",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2899",
+    "title": "User roles should only be COACH, PATIENT, ADMIN",
+    "url": "https://www.notion.so/303b6d88d2cf8025b419ee8e7a11ca3b",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2898",
+    "title": "Chat room should be 3-person (patient + coach + admin), not 2-person",
+    "url": "https://www.notion.so/303b6d88d2cf805b9eeef0a2ded828f5",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2360",
+    "title": "Failed to create a new user",
+    "url": "https://www.notion.so/302b6d88d2cf806ea8ccc5aafea18548",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2359",
+    "title": "Prescription record(history)",
+    "url": "https://www.notion.so/301b6d88d2cf8040b782cb54e3a6d71c",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2358",
+    "title": "Exercise library",
+    "url": "https://www.notion.so/301b6d88d2cf80d8a1dbdf20d80dec21",
+    "description": "",
+    "dev_comment": "Root cause: The seed script populated rep_time and unit columns but never populated default_reps and default_duration_seconds. The frontend reads defaultReps/defaultDurationSeconds to display reps/times, so all exercises showed \"-\". Additionally, exercise 8102 had Unit=분 (minutes) which the seed script did not handle, resulting in NULL unit.\n\nFix:\n1. Migration 1770300000000: Fixes exercise 8102 (1분 → 60초), populates default_reps from rep_time for REPS exercises, populates default_duration_seconds from rep_time for SECONDS exercises.\n2. Seed script updated: Added 분/minutes unit handling with seconds conversion. Added default_reps and default_duration_seconds to INSERT statement.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2338",
+    "title": "User management",
+    "url": "https://www.notion.so/2feb6d88d2cf80af9fe3c33a9d77516c",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2337",
+    "title": "Patient has two chatroom with the same coach",
+    "url": "https://www.notion.so/2feb6d88d2cf8006a5f5f9e2203fcba4",
+    "description": "",
+    "dev_comment": "### Fix Applied (Backend)\n\n**Issue 1: Duplicate chat rooms**\n- Controller `POST /chat/rooms` now uses `getOrCreate` pattern instead of `create` to prevent duplicates\n- Added race condition protection to `getOrCreate()` service method (catches PostgreSQL unique constraint violation 23505)\n- Created migration `1770100000000-CleanupDuplicateChatRooms` to merge existing duplicate rooms, move messages, and replace UNIQUE constraint with partial unique index\n\n**Issue 2: Last message not showing in chat list**\n- Added `getLastMessagesByRoomIds()` batch method to ChatMessageRepository using PostgreSQL DISTINCT ON\n- Updated `findWithUnreadCount()` in ChatRoomService to fetch and attach last message for each room\n- Frontend already handles `room.lastMessage` correctly - no frontend changes needed\n\n**Files Modified:**\n- `backend/src/modules/chat/repositories/chat-message.repository.ts`\n- `backend/src/modules/chat/services/chat-room.service.ts`\n- `backend/src/modules/chat/controllers/chat.controller.ts`\n- `backend/src/database/migrations/1770100000000-CleanupDuplicateChatRooms.ts` (new)",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2335",
+    "title": "Patient can not see today’s exercise",
+    "url": "https://www.notion.so/2feb6d88d2cf800bab4ff8241e5d151c",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2334",
+    "title": "Patient can not submit their survey",
+    "url": "https://www.notion.so/2feb6d88d2cf80ea8c0aef074e334fea",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2332",
+    "title": "Coach profile details",
+    "url": "https://www.notion.so/2feb6d88d2cf80e990f7faee92846ce9",
+    "description": "",
+    "dev_comment": "Added min-h-0 to the profile content wrapper div to fix flex overflow scrolling. The layout uses min-h-screen + overflow-hidden + flex-col, so without explicit min-h-0, the flex item couldn't shrink below content height and overflow-y-auto never activated. Also added no-scrollbar, z-10, and relative to match the pattern used by other working coach pages (patients, calendar, chat). Applied same fix to patient profile for consistency.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2333",
+    "title": "User are unable to select another date",
+    "url": "https://www.notion.so/2feb6d88d2cf8058b92adaeb7edc6bcd",
+    "description": "",
+    "dev_comment": "Fixed: Made patient home page (/patient) dynamic with date selection.\n\nChanges:\n1. Calendar dates are now clickable (week view + expanded). Selecting a date updates all content (survey, exercises, coaching session) for that date.\n2. Added selected date visual indicator: blue ring in both views (distinct from today solid blue).\n3. Week view now shows colored dots for all activities: green=exercise, yellow=survey, blue=session.\n4. Fold button icon changed to proper upward arrow.\n5. Date-aware labels adapt based on selected date. Past dates hide survey Start button.\n\nFiles: shared.d.ts, useSurveys.ts, calendar-grid.tsx, home.tsx\nNo backend changes.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2326",
+    "title": "Need to prescriptions list page",
+    "url": "https://www.notion.so/2feb6d88d2cf80368684ea8835fb2448",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "2222",
+    "title": "Exercise creation feature",
+    "url": "https://www.notion.so/2feb6d88d2cf80609dbed81dae604fa9",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "1530",
+    "title": "Use can see the history of submitted survey",
+    "url": "https://www.notion.so/cf79d40b50c9448e9538ec29b20ba485",
+    "description": "",
+    "dev_comment": "Fixed: Survey history was limited to 10 entries with no pagination. Updated useSurveyHistory hook to support pagination parameters and return full response (surveys, total, page, limit). Added accumulating Load More button to patient survey history tab so users can view their complete survey history. The existing detail modal (click to view survey details) was already working correctly.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "1531",
+    "title": "admin log in failed message",
+    "url": "https://www.notion.so/ca960c93a68e40b280cc5ac9a075a537",
+    "description": "There is no message for an invalid password.",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "1526",
+    "title": "minus number",
+    "url": "https://www.notion.so/02b0388b606148f3ba8bf47f45f32eaa",
+    "description": "All number input fields accept positive integers from 0.",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "1525",
+    "title": "Exercise prescription",
+    "url": "https://www.notion.so/36dd35eece54474e8e00b2f26c872a1c",
+    "description": "The admin can prescribe the patient with 3-7 exercises. They need the search and filter exercise feature when prescribing.",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "1519",
+    "title": "Admin profile avatar",
+    "url": "https://www.notion.so/ffd52fcae2db489f92e0fb112e30016a",
+    "description": "A logout dropdown menu is required.",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "1517",
+    "title": "Notification Icon",
+    "url": "https://www.notion.so/d3b879167c2844a98b85f679975f1ec4",
+    "description": "I don't think admin need the notification detail page",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "1516",
+    "title": "Too many Role",
+    "url": "https://www.notion.so/5cd31945fc19406b8c870b0c5d466307",
+    "description": "The app has only one admin and two users (patient, coach)",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "1524",
+    "title": "User creation",
+    "url": "https://www.notion.so/122fb6029a7941c39302438d2dbfc8e4",
+    "description": "1. Username \n2. login ID \n3. Password \n4. Password confirm \n5. Birth\n6. phone *\n7. Role",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "1515",
+    "title": "Localization Issue on Login Button",
+    "url": "https://www.notion.so/78f944b1beac465d9588e9d6a68e8bb4",
+    "description": "For a brief moment, it appears in English rather than Korean.",
+    "dev_comment": "Fixed: Added missing i18n key \"auth.landing.loggingIn\" to both ko.json (\"로그인 중...\") and en.json (\"Logging in...\"). The key was referenced in login.tsx but never defined in the translation files, causing i18next to display the raw key string instead of the translated text.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "1508",
+    "title": "All the component sizes",
+    "url": "https://www.notion.so/752a7708e68f479b925c039fe1dd1e46",
+    "description": "The header heights and profile size are different eachother. We need to bring all the sizes together. and don't need the red section if there is no exercise presciption",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "1507",
+    "title": "Calendar gap(height) between the elements",
+    "url": "https://www.notion.so/bd7eb0af591d4974acf459c519657136",
+    "description": "It is too large.",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "1513",
+    "title": "Coach profile page",
+    "url": "https://www.notion.so/f088602e106348a08326a54d565641f3",
+    "description": "There is no coach profile page now. Coach can't log out.",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "1506",
+    "title": "My profile detail page",
+    "url": "https://www.notion.so/464be8b04c8d4a2c81d6f63865fa3ef2",
+    "description": "It should be directed to my profile page, not a dropdown.",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "1509",
+    "title": "Padding sizes",
+    "url": "https://www.notion.so/69d36a23f0b84a0a81a95817c866d1e0",
+    "description": "Each has different padding.",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "1512",
+    "title": "Quality ranges",
+    "url": "https://www.notion.so/2c47f5bfb14e475eac1057e59a276ab2",
+    "description": "The sleep quality assessment scale ranges from 1 to 10.",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "1510",
+    "title": "Survey check effect",
+    "url": "https://www.notion.so/8c1982e02ad547b098fb84ac1ae7aed5",
+    "description": "If the user chooses an option, the circle will be filled with dot.",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  }
+]

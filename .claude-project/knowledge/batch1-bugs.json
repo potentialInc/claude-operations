@@ -1,0 +1,677 @@
+[
+  {
+    "ticket_id": "3133",
+    "title": "Clickable button on Order Management & Add “Request Revision” “Awaiting Production” button instead of “On hold” and “Cancelled”",
+    "url": "https://www.notion.so/320b6d88d2cf80c684a0d768daa21cf8",
+    "description": "",
+    "dev_comment": "",
+    "status": "New",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3132",
+    "title": "Add more buttons from Dashboard as admin review below most frequently\n“Drafted”, “Request Revision”, “Awaiting Production”",
+    "url": "https://www.notion.so/320b6d88d2cf8027823dcc0fa5c94769",
+    "description": "",
+    "dev_comment": "",
+    "status": "New",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3130",
+    "title": "Design review 3shape link insert and html insert design to be same.",
+    "url": "https://www.notion.so/320b6d88d2cf80e98c1ae275f0ec0444",
+    "description": "6",
+    "dev_comment": "",
+    "status": "New",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3129",
+    "title": "When Reopen Order, “User ID” & and “Case Name” should be already inserted.",
+    "url": "https://www.notion.so/320b6d88d2cf80d0a4e4c3cddccf9a7c",
+    "description": "",
+    "dev_comment": "",
+    "status": "New",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3128",
+    "title": "Growth to be Last 30 days, not month-by-month",
+    "url": "https://www.notion.so/320b6d88d2cf80c28951dcd482505052",
+    "description": "",
+    "dev_comment": "",
+    "status": "New",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3127",
+    "title": "Dashboard update to daily x-axis",
+    "url": "https://www.notion.so/320b6d88d2cf80a38cedf89c7a98716a",
+    "description": "",
+    "dev_comment": "",
+    "status": "New",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3126",
+    "title": "Need “Scanbody Type” section in Manage Content -> Order items (admin need to add more items)",
+    "url": "https://www.notion.so/320b6d88d2cf80a49111fde76219135b",
+    "description": "",
+    "dev_comment": "",
+    "status": "New",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3125",
+    "title": "Add “ASC Abutment” in Abutment Type, and “Screwmentable” Retention Type. ASC Abutment is $150.",
+    "url": "https://www.notion.so/320b6d88d2cf808884aedec1c395e4d2",
+    "description": "",
+    "dev_comment": "",
+    "status": "New",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3124",
+    "title": "Add “Veneer” in Restoration type, same decision tree as “Single Crown” → automatically add “Printed Model” in Additional Services",
+    "url": "https://www.notion.so/320b6d88d2cf80838234e3e0e7b0bb6d",
+    "description": "4.1",
+    "dev_comment": "",
+    "status": "New",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3123",
+    "title": "Added item not displayed in Order summary",
+    "url": "https://www.notion.so/320b6d88d2cf80f99dfed9220e4e01f3",
+    "description": "1.2",
+    "dev_comment": "",
+    "status": "New",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3122",
+    "title": "Added item not displayed in invoice",
+    "url": "https://www.notion.so/320b6d88d2cf80899301cae74de0e089",
+    "description": "1.1",
+    "dev_comment": "",
+    "status": "New",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3121",
+    "title": "Current chat functionally unstable",
+    "url": "https://www.notion.so/320b6d88d2cf800eb5c1f797e36edce1",
+    "description": "  • Does not display text after clicking box\n  • Download button becomes smaller for a long file name\n  • Text displays random chat area when clicked → should display the latest conversation\n  • wrong chat display (Dr. Erin’s chat is Dr. Mark Valrose’s case)\n\n[After several attempts, it displays the correct chat.]",
+    "dev_comment": "",
+    "status": "New",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3110",
+    "title": "Page Reload Redirects to First Page",
+    "url": "https://www.notion.so/31eb6d88d2cf804faba3e7276daa44c5",
+    "description": "No matter which page I am currently on, if I reload that page, it always redirects me to the first page instead of staying on the current page.",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3109",
+    "title": "Image Generation Issue",
+    "url": "https://www.notion.so/31eb6d88d2cf80a8af5ed8cf345618db",
+    "description": "",
+    "dev_comment": "",
+    "status": "New",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3108",
+    "title": "Error When Deleting Prompt After Design Generation (“Validation failed – uuid is expected”)",
+    "url": "https://www.notion.so/31eb6d88d2cf804ea32ad28b62d62b5f",
+    "description": "",
+    "dev_comment": "Added DELETE /design-editing/messages/:messageId endpoint with HTML rollback. Backend deletes user msg + assistant response + all subsequent msgs, rolls back page HTML to previous snapshot. Frontend trash icon on edit messages with confirmation dialog. Files: design-editing.service.ts, design-editing.controller.ts, designEditingService.ts, chatGenerationSlice.ts, UnifiedMessageList.tsx, chat-generate/index.tsx",
+    "status": "New",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3107",
+    "title": "Generated Landing Page Appears Blank in Design View",
+    "url": "https://www.notion.so/31eb6d88d2cf80f2b553d3b76e7e33cf",
+    "description": "",
+    "dev_comment": "Fixed: 1) Applied sanitizeInlineScripts to ALL iframe HTML (both preview and design modes) to prevent broken </script> tags in AI-generated HTML from corrupting the DOM and hiding page content. 2) Increased backend edit timeout from 80s to 120s to reduce timeout errors on large pages.",
+    "status": "New",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3106",
+    "title": "Side Navbar issues among pages",
+    "url": "https://www.notion.so/31eb6d88d2cf8084a8c8d5a36a08b821",
+    "description": "",
+    "dev_comment": "",
+    "status": "New",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3105",
+    "title": "Generates Blank pages",
+    "url": "https://www.notion.so/31eb6d88d2cf808e9c68c68099acc4af",
+    "description": "",
+    "dev_comment": "Added global edit detection: when user mentions all pages/every page/globally etc in edit prompt, the backend now applies the same AI edit to all sibling pages automatically. Frontend re-fetches design pages after global edit to reflect changes.",
+    "status": "New",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3104",
+    "title": "Navbar Should Be Hidden in Design Workspace",
+    "url": "https://www.notion.so/31db6d88d2cf80a48067f46d5eef72ad",
+    "description": "",
+    "dev_comment": "Fixed: Removed the app Header from the chat-generate workspace layout. The workspace already has its own back button and toolbar, giving users a distraction-free full-screen design environment.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3103",
+    "title": "Prompt-Based Minor Edits Not Working (Edit Stream Connection Lost)",
+    "url": "https://www.notion.so/31db6d88d2cf8015bf97ea0ea42114f9",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3102",
+    "title": "Page Organization and Prototype Navigation Problems",
+    "url": "https://www.notion.so/31db6d88d2cf806194eef1b3d0426408",
+    "description": "",
+    "dev_comment": "Fixed 3 remaining issues: (1) Auto-group now triggers when restoring existing sessions, not just after fresh generation. (2) Anchor links (#section, #features, etc.) no longer blocked � properly skipped for in-page scrolling. (3) AI-generated links with spaces (e.g. \"About Us\") now normalized to hyphens before slug matching. Also improved: query string handling in catch-all regex, consistent lowercase slug normalization.",
+    "status": "New",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3100",
+    "title": "Blank Page After Design Generation",
+    "url": "https://www.notion.so/31bb6d88d2cf807cbcfdc1fc365d1150",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3099",
+    "title": "Mobile App Screen Not Using Full Width (Responsiveness Issue",
+    "url": "https://www.notion.so/31bb6d88d2cf8009922debab43f6aa43",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3098",
+    "title": "Default View Should Open in Preview Mode Instead of Edit Mode",
+    "url": "https://www.notion.so/31ab6d88d2cf8004bd3ec2685be43e36",
+    "description": "",
+    "dev_comment": "Added Preview/Design view mode toggle in chat-generate page. Default is now Preview mode (no element selection). Users can switch to Design mode to click-edit elements. Also applied to my-designs detail page.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3097",
+    "title": "Preview Container Not Optimized for 1440px Layout",
+    "url": "https://www.notion.so/31ab6d88d2cf80b0a731cde07911fde2",
+    "description": "",
+    "dev_comment": "Auto-fit zoom: preview now calculates optimal zoom based on container width to fill available space. Reduced padding from p-4 to p-2 in desktop mode. Removed hardcoded scale(0.6) from my-designs and GeneratingView, using full-width iframes instead.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3095",
+    "title": "Inner Page Preview Not Working",
+    "url": "https://www.notion.so/31ab6d88d2cf808b8724c049ff69e5dc",
+    "description": "",
+    "dev_comment": "Preview button always opened /designs/{id}/preview (no slug), showing the home page regardless of selected page. Fix: append current page slug to preview URL so inner pages open correctly.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3094",
+    "title": "History Does Not Show Any Updates made by prompts",
+    "url": "https://www.notion.so/31ab6d88d2cf8083ba06ca3f77878368",
+    "description": "",
+    "dev_comment": "Version history was client-side only (Redux state), lost on page reload. Fix: in fetchEditMessagesByPage.fulfilled, rebuild version history from persisted htmlSnapshot fields in edit messages. Edit history now survives page refresh.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3093",
+    "title": "Connection Error During Repeated Matching",
+    "url": "https://www.notion.so/31ab6d88d2cf805d887dd7963f9397f9",
+    "description": "",
+    "dev_comment": "",
+    "status": "Ready for test",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3092",
+    "title": "An unknown component appears ",
+    "url": "https://www.notion.so/31ab6d88d2cf808682b5c71913972de4",
+    "description": "",
+    "dev_comment": "",
+    "status": "Ready for test",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3091",
+    "title": "Inner Pages Generated Without Design",
+    "url": "https://www.notion.so/31ab6d88d2cf80b19feecd098f31c2b6",
+    "description": "",
+    "dev_comment": "Code flow is correct (commit 3be832b fixed template-free sessions). Added retry mechanism: if generated page body text < 200 chars (empty/skeleton), regenerates once. This catches cases where AI produces minimal HTML.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3090",
+    "title": "Bug: Captured artworks are not being sorted into the correct collection based on check-in status.\nExpected: If user is checked in, capture should be added to the Location Capture Collection; if not checked in, capture should be added to the Untitled Capture Collection.",
+    "url": "https://www.notion.so/31ab6d88d2cf80fa9affe5cc75e4d84a",
+    "description": "",
+    "dev_comment": "",
+    "status": "Ready for test",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3089",
+    "title": "Bug: When user captures an artwork photo, the Artwork Inference API is not being called, resulting in no AI recognition functionality during the Sprint 2 demo.\nExpected: Artwork Inference API should be called immediately after photo capture, regardless of check-in status, and return artwork information on success or prompt manual entry on failure.",
+    "url": "https://www.notion.so/31ab6d88d2cf803986fcfff7e308528e",
+    "description": "",
+    "dev_comment": "",
+    "status": "New",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3082",
+    "title": "Optimized Social Login Flow",
+    "url": "https://www.notion.so/319b6d88d2cf80d38e20f3604e916992",
+    "description": "",
+    "dev_comment": "",
+    "status": "In Progress",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3081",
+    "title": "Attached Image Not Displaying in Chat",
+    "url": "https://www.notion.so/319b6d88d2cf8019b58ad227e592d5c6",
+    "description": "",
+    "dev_comment": "Images were sent to backend but never displayed in chat UI. Fix: added imageDataUrl to ChatMessage type, passed attachment data URL through Redux, and rendered image preview in MessageBubble component. Note: images show in current session only (not persisted to DB).",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3070",
+    "title": "Coach signup form does not create an account",
+    "url": "https://www.notion.so/319b6d88d2cf81098411f9312390726a",
+    "description": "",
+    "dev_comment": "Already fixed in commit 7d790fe (2026-03-04). The handleSubmit was just calling navigate(\"/login\") without any API call. Fixed by adding authService.register() with name, email, password, role=COACH. Also added loading state, error handling, and success message UI. Fix is on both ashadul.dev and dev branches.",
+    "status": "Close",
+    "feature": "Coach Signup"
+  },
+  {
+    "ticket_id": "3073",
+    "title": "Admin patient table — Export button does nothing",
+    "url": "https://www.notion.so/319b6d88d2cf8109ad64c3f9840cae48",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": "Admin Patient Management"
+  },
+  {
+    "ticket_id": "3079",
+    "title": "Remove unused counter code (counterSlice and Counter component)",
+    "url": "https://www.notion.so/319b6d88d2cf8120b6e0f91326d4a25b",
+    "description": "",
+    "dev_comment": "Removed unused counter boilerplate code. Deleted counterSlice.ts and Counter.tsx, removed counterReducer from rootReducer.ts. Frontend build verified.",
+    "status": "Close",
+    "feature": "Code Cleanup"
+  },
+  {
+    "ticket_id": "3072",
+    "title": "Admin coach table — Export button does nothing",
+    "url": "https://www.notion.so/319b6d88d2cf8127bddffa8ce5d0d78e",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": "Admin Coach Management"
+  },
+  {
+    "ticket_id": "3078",
+    "title": "SMS service not set up — phone OTP does not work",
+    "url": "https://www.notion.so/319b6d88d2cf81288c58e580cef5509b",
+    "description": "",
+    "dev_comment": "Skipped - requires SMS provider business decision (e.g., Twilio, AWS SNS, Korean provider). No code changes needed until provider is selected.",
+    "status": "Backlog",
+    "feature": "SMS / OTP"
+  },
+  {
+    "ticket_id": "3071",
+    "title": "Coach signup — license number and hospital code fields are never saved",
+    "url": "https://www.notion.so/319b6d88d2cf81b58a12e8b6ce3d8a30",
+    "description": "",
+    "dev_comment": "Fixed full-stack pipeline: Added licenseNumber and hospitalCode columns to User entity, RegisterDto, auth.service register method, frontend RegisterRequest type, and coach signup form handleSubmit. Generated migration. Files: user.entity.ts, register.dto.ts, auth.service.ts, auth.d.ts, coach.tsx",
+    "status": "Close",
+    "feature": "Coach Signup"
+  },
+  {
+    "ticket_id": "3080",
+    "title": "Coach and patient profile pages — user cannot edit their information",
+    "url": "https://www.notion.so/319b6d88d2cf81cd9c40ea07b59f001d",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": "Profile"
+  },
+  {
+    "ticket_id": "3075",
+    "title": "Patient notifications — clicking a notification does not navigate anywhere",
+    "url": "https://www.notion.so/319b6d88d2cf81e0a7a5d0ae831b05b9",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": "Patient Notifications"
+  },
+  {
+    "ticket_id": "3077",
+    "title": "Coach patient list — Sort button does nothing",
+    "url": "https://www.notion.so/319b6d88d2cf81f39e66ec00182383b2",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": "Coach Patients"
+  },
+  {
+    "ticket_id": "3056",
+    "title": "Dynamic input fields based on Role selection in 'Create New User' modal",
+    "url": "https://www.notion.so/318b6d88d2cf8088913bff69908daf11",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3054",
+    "title": "backbutton redirection issue",
+    "url": "https://www.notion.so/318b6d88d2cf80b6b857f20e86f3f9bd",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3053",
+    "title": "The individual intensity doesn’t show the exercise record in admin dashboard.",
+    "url": "https://www.notion.so/318b6d88d2cf807a8430c7dce096bb78",
+    "description": "",
+    "dev_comment": "Fixed: handleSimpleRating in exercise-detail.tsx was ignoring the rating param (prefixed _ as unused). Added RATING_TO_INTENSITY map (1=LOW/Easy, 2=MEDIUM/Normal, 3=HIGH/Difficult) and passed individualIntensity to logExercise.mutateAsync(). Admin panel ExerciseCell already displays intensity badges correctly - no backend changes needed. File: frontend/app/pages/patient/exercise-detail.tsx",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3051",
+    "title": "Incorrect Output from PDF Analysis",
+    "url": "https://www.notion.so/318b6d88d2cf80bdb518dfccb7358f42",
+    "description": "",
+    "dev_comment": "Root cause: analyzeWithPrd() ignored uploaded PDF/image, determining pages from text only. A single landing page PDF was treated as a broad request, generating 20+ unrelated pages. Fix: pass imageData to PRD analysis + updated prompt to respect visual references.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3049",
+    "title": "Layout breaks (Text wraps) when the current date is focused",
+    "url": "https://www.notion.so/318b6d88d2cf80589c5af45b25a47b1d",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3047",
+    "title": "Chat History Not Fully Displayed",
+    "url": "https://www.notion.so/317b6d88d2cf80139cd5e7d897921520",
+    "description": "All we can see is our first prompt. when we reload the website no prompt showing except the first prompt",
+    "dev_comment": "Additional fixes: (1) Added isRestoringSession loading state � shows skeleton loading UI while chat history is being fetched on page reload instead of the welcome prompt. (2) Generation complete status is derived from session state on restore (showDerivedCompleteMessage). (3) Messages are sorted chronologically after fetch. Previous fix already handles AI response display and FILE: marker stripping.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3046",
+    "title": "Same template new page creation error",
+    "url": "https://www.notion.so/317b6d88d2cf800781c3e570f91d9d64",
+    "description": "When we try to create new inner page its not creating, showing “Failed to add page”",
+    "dev_comment": "Root cause: addPageToDesign required templateId, but template-free chat sessions have null templateId. Fix: use first existing page HTML as style reference when no template. Also fixed error message priority (backend message > generic Axios error).",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3045",
+    "title": "Second Prompt Not Being Processed",
+    "url": "https://www.notion.so/317b6d88d2cf8001b6f9c73093e68f33",
+    "description": "When I give the second or another prompt in the chat box, the second prompt doesn't appear in the chat section but it shows starting design generation but don’t do the design. ",
+    "dev_comment": "Root cause (regression): The addPagePattern regex was too broad � it matched any prompt containing make/create/generate + any text + page. So edit prompts like \"make this page look better\" falsely triggered addNewPage instead of the edit path. Combined with UnifiedMessageList only rendering messages before gen-complete, user messages were invisible. Fix: (1) Tightened regex to require action word near page, (2) render post-gen messages, (3) backend uses BadRequestException, (4) await sendChatMessage before SSE, (5) guard for completed sessions without designId.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3044",
+    "title": "Design Rendering Shows Raw Code",
+    "url": "https://www.notion.so/317b6d88d2cf8023af87d04b41119d3f",
+    "description": "Some of the page is displaying raw code instead of rendering the proper design.",
+    "dev_comment": "Root cause: AI-generated inline <script> tags contain literal </script> strings that break the browser parser, causing subsequent injected scripts to render as visible text. Fix: Added sanitizeInlineScripts() on both frontend (iframe-selection-script.ts) and backend (chat-generation.service.ts, gemini.service.ts) to escape nested </script> within script blocks. Also ensured missing </body></html> closing tags are appended.",
+    "status": "New",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3043",
+    "title": "Version History Not Restoring Previous Design",
+    "url": "https://www.notion.so/317b6d88d2cf8012b0eed9ad5c083adc",
+    "description": "",
+    "dev_comment": "Two fixes: 1) Version preview was wrapping full HTML docs inside <body>, creating malformed nested HTML. Now detects full docs and uses them directly. 2) Version restore now persists to backend via quickEdit API so it survives page refresh.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3042",
+    "title": "Design Disappeared After Manual Text Change",
+    "url": "https://www.notion.so/317b6d88d2cf80fcb9cec8e01dad1dcb",
+    "description": "",
+    "dev_comment": "Root cause: DOMParser re-serialization corrupts complex generated HTML. Fix: capture full page HTML directly from iframe DOM after text edit (removing overlay elements temporarily). Falls back to DOMParser path if iframe HTML unavailable.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3041",
+    "title": "suggested workflow is:",
+    "url": "https://www.notion.so/317b6d88d2cf80398668c46e91f322c0",
+    "description": "",
+    "dev_comment": "Implemented all 3 features: (1) Template selector dialog with search and live preview in chatbox (Layout icon button, shown in chatting phase). (2) Attachment upload already existed (Paperclip button). (3) Image clipboard pasting - paste images directly into chatbox via Ctrl+V.",
+    "status": "Backlog",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3034",
+    "title": "Incomplete Design Output from Template for first time",
+    "url": "https://www.notion.so/317b6d88d2cf804c8ba7e48cd6f433e7",
+    "description": "When we try to generate using template initially it doesn’t provide any design. But when we reload the page we can see the design properly.",
+    "dev_comment": "Fixed missing retry logic for fetchDesignBySession after generation completes. The chat SSE handler had retry logic but generation SSE, fallback polling, and safety net polling did not. Extracted shared fetchDesignWithRetry callback with exponential backoff (up to 3 attempts) and applied it to all 4 generation completion handlers. Design now loads reliably after generation without requiring a page reload.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3032",
+    "title": "Inconsistent Session Bar Width in Calendar",
+    "url": "https://www.notion.so/317b6d88d2cf80e18aeccd8371fad1a1",
+    "description": "",
+    "dev_comment": "Fixed by adding display: block to FullCalendar event objects. Timed events in month view were rendering as dot-events (content-width) instead of block-events (full cell width). File: frontend-dashboard/app/components/admin/calendar/CalendarContainer.tsx",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3031",
+    "title": "'Deselect All' filter not working on Sessions Calendar",
+    "url": "https://www.notion.so/317b6d88d2cf8080b7cde44cfface40b",
+    "description": "",
+    "dev_comment": "Fixed two bugs:\n1. CalendarContainer.tsx: filteredMeetings returned ALL meetings when selectedCoachIds was empty. Changed to return [] instead.\n2. home.tsx: API query fetched all meetings when no coaches selected. Added enabled: selectedCoachIds.length > 0 to skip the request.\n\nFiles modified:\n- frontend-dashboard/app/components/admin/calendar/CalendarContainer.tsx\n- frontend-dashboard/app/pages/admin/home.tsx",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3030",
+    "title": "Fix table header at the top while scrolling",
+    "url": "https://www.notion.so/314b6d88d2cf803d8312fc71162faa4f",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3025",
+    "title": "Wrong Redirection for \"View Session Records”",
+    "url": "https://www.notion.so/314b6d88d2cf80bba89beb9965be016f",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3024",
+    "title": "Add a checkmarker",
+    "url": "https://www.notion.so/314b6d88d2cf806fa9d1dcfcce00513b",
+    "description": "",
+    "dev_comment": "Fixed 2 issues:\n1. UI: Checkmark icon now displays inside checkbox when checked (fixed Tailwind CSS targeting)\n2. Auto-login: Cookie now persists for 30 days when rememberMe is enabled (added maxAge to httpOnly cookie)\n\nFiles changed:\n- frontend/app/pages/auth/login.tsx\n- backend/src/core/interceptors/set-token.interceptor.ts",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3023",
+    "title": "Validation issue on the survey",
+    "url": "https://www.notion.so/314b6d88d2cf8093a355d95fedec1522",
+    "description": "",
+    "dev_comment": "Added onKeyDown handlers to both walking minutes and step count inputs to block non-numeric characters (e, E, +, -, .). File: frontend/app/pages/patient/survey.tsx",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3022",
+    "title": "Restrict access to future exercises and prevent editing past records",
+    "url": "https://www.notion.so/313b6d88d2cf8028b76cc40dbdd9d173",
+    "description": "",
+    "dev_comment": "Implemented date-based access control:\n\nBackend:\n- Added DateUtil.isToday() and assertTodayOnly() guards\n- POST /exercise-logs rejects non-today dates (400)\n- POST /exercise-days/complete rejects non-today dates (400)\n- POST /surveys/daily rejects non-today dates (400)\n\nFrontend (patient home page):\n- Future dates: Exercise card shows lock icon, non-clickable. Survey shows Scheduled.\n- Past dates: Exercise card is read-only with neutral styling.\n- Today: No changes, fully functional.\n- Zoom sessions: Remain accessible on all dates.\n\nFiles modified:\n- backend/src/core/utils/date.util.ts\n- backend/src/modules/exercises/services/exercise-log.service.ts\n- backend/src/modules/exercises/services/exercise-day.service.ts\n- backend/src/modules/surveys/services/daily-survey.service.ts\n- frontend/app/pages/patient/home.tsx\n- frontend/app/i18n/locales/en.json\n- frontend/app/i18n/locales/ko.json",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3021",
+    "title": "Exercise Count Mismatch",
+    "url": "https://www.notion.so/313b6d88d2cf80cd84e8ec6da727e5d7",
+    "description": "",
+    "dev_comment": "Fixed getDaySummary() in exercise-day.service.ts to always validate totalCount against current active prescriptions instead of returning stale ExerciseDay records. Now if prescriptions are deactivated/removed, the count correctly reflects 0 and returns null.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3020",
+    "title": "No Download HTML option after generationScreenshot",
+    "url": "https://www.notion.so/313b6d88d2cf81fcbee8cec5aa20ec41",
+    "description": "After a design is generated and shows 100% completion, there is no option available to Download the HTML code.",
+    "dev_comment": "Download HTML/React buttons were gated behind isMultiPage condition. Removed the guard so buttons appear for all designs once a designId exists.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3019",
+    "title": "template_id null constraint error when saving design",
+    "url": "https://www.notion.so/313b6d88d2cf813782a6ef4ee5e4aacf",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3018",
+    "title": "Generated sections not rendering in design preview",
+    "url": "https://www.notion.so/313b6d88d2cf81d69d7ad318642e0acc",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3017",
+    "title": "Date Dividers are Missing",
+    "url": "https://www.notion.so/313b6d88d2cf80dbb7d1eb56cee34321",
+    "description": "",
+    "dev_comment": "Added date dividers to chat message list in both patient and coach views.\n\nFiles changed:\n- NEW: frontend/app/components/chat/chat-date-divider.tsx (ChatDateDivider component + helpers)\n- MOD: frontend/app/pages/patient/chat-detail.tsx (date divider rendering)\n- MOD: frontend/app/pages/coach/chat-detail.tsx (date divider rendering)\n\nShows \"Today\", \"Yesterday\", or full date (e.g. 2026년 2월 25일) between messages from different days. Supports KO/EN i18n. Build verified.",
+    "status": "Close",
+    "feature": ""
+  },
+  {
+    "ticket_id": "3015",
+    "title": "show password not matching in create account, confirm password as instruction or warning",
+    "url": "https://www.notion.so/313b6d88d2cf801983e6c0b677acd164",
+    "description": "",
+    "dev_comment": "",
+    "status": "Ready for test",
+    "feature": "auth"
+  },
+  {
+    "ticket_id": "3014",
+    "title": "Onboarding information complete issue, loading in username",
+    "url": "https://www.notion.so/313b6d88d2cf80348a3bed5926ee9b64",
+    "description": "",
+    "dev_comment": "",
+    "status": "Ready for test",
+    "feature": "onboarding"
+  },
+  {
+    "ticket_id": "3013",
+    "title": "SEARCH not connected with db",
+    "url": "https://www.notion.so/313b6d88d2cf8076aa58db1da927cb36",
+    "description": "",
+    "dev_comment": "",
+    "status": "Ready for test",
+    "feature": "search"
+  },
+  {
+    "ticket_id": "3012",
+    "title": "No image showing in identify artwork.",
+    "url": "https://www.notion.so/313b6d88d2cf8041869bedd2f7178e09",
+    "description": "",
+    "dev_comment": "",
+    "status": "Ready for test",
+    "feature": "identify image"
+  },
+  {
+    "ticket_id": "3011",
+    "title": "Object count issue in recognition picture",
+    "url": "https://www.notion.so/313b6d88d2cf8062bcb7c91566dfe4c6",
+    "description": "",
+    "dev_comment": "",
+    "status": "Ready for test",
+    "feature": "recognition image"
+  },
+  {
+    "ticket_id": "3010",
+    "title": "No images showing on detected image. ",
+    "url": "https://www.notion.so/313b6d88d2cf80c4aa48c65227c39600",
+    "description": "",
+    "dev_comment": "",
+    "status": "Ready for test",
+    "feature": "capture image"
+  },
+  {
+    "ticket_id": "3009",
+    "title": "Images ratio adjustment must be corrected. It’s bad now.",
+    "url": "https://www.notion.so/313b6d88d2cf804eac3ec6ef73d02a44",
+    "description": "",
+    "dev_comment": "",
+    "status": "Ready for test",
+    "feature": "image"
+  }
+]

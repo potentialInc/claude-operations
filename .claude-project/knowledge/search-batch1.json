@@ -1,0 +1,192 @@
+[
+  {
+    "ticket_id": "3083",
+    "title": "Admin tables — Fix column resize to work like Excel and persist width",
+    "url": "https://www.notion.so/319b6d88d2cf815f8fa7dc0fac727941",
+    "category": "Change Request",
+    "description": "When user drags a column border to resize in admin tables, the entire table width changes together. The column on one side stays fixed and the whole layout shifts. This is not like Excel behavior. After page reload or re-login, the column width resets to default.",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "Admin Dashboard"
+  },
+  {
+    "ticket_id": "1094",
+    "title": "Office Phone number Error issue",
+    "url": "https://www.notion.so/29cb6d88d2cf809aa4dcd562aa3e6979",
+    "category": "Bug",
+    "description": "Need to show how to input phone numbers or automatically converts to corrected input when customer inputs 10 digits.",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "Thrll"
+  },
+  {
+    "ticket_id": "371",
+    "title": "playbook error",
+    "url": "https://www.notion.so/1f4b6d88d2cf8071bc9dfdbed7336df9",
+    "category": "Bug",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "Playbook"
+  },
+  {
+    "ticket_id": "3084",
+    "title": "Change title from '운동 관리' to '운동 라이브러리'",
+    "url": "https://www.notion.so/319b6d88d2cf81589f9bf9021eb64c5e",
+    "category": "Change Request",
+    "description": "The page title on the admin exercise page should change from '운동 관리' (Exercise Management) to '운동 라이브러리' (Exercise Library).",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "Admin Dashboard"
+  },
+  {
+    "ticket_id": "437",
+    "title": "UI Issue in dashboard",
+    "url": "https://www.notion.so/201b6d88d2cf80a69578f42332bba274",
+    "category": "Bug",
+    "description": "UI Issue - Good Morning: What if it's not morning, Class Number is showing two times, Class Type N/A",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "Student Dashboard"
+  },
+  {
+    "ticket_id": "986",
+    "title": "Language Error",
+    "url": "https://www.notion.so/26cb6d88d2cf8034bb4bdd60299bff8d",
+    "category": "Bug",
+    "description": "After selecting `English` giving error in `Korean` language",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "Thrll"
+  },
+  {
+    "ticket_id": "1486",
+    "title": "Filter issue",
+    "url": "https://www.notion.so/2e8b6d88d2cf8074aa01d91ecf3b7217",
+    "category": "Bug",
+    "description": "When I set and reopen the filter modal: Diagnosis reset, Call result reset, Data disappear",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "Playbook"
+  },
+  {
+    "ticket_id": "1485",
+    "title": "filter issue",
+    "url": "https://www.notion.so/2e8b6d88d2cf8012ad1efdef367983d5",
+    "category": "Bug",
+    "description": "When I check the diagnosis filter and reopen the filter modal, it resets automatically. When I set date filter and reopen, date is disappear",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "Playbook"
+  },
+  {
+    "ticket_id": "1130",
+    "title": "UI Issue",
+    "url": "https://www.notion.so/29cb6d88d2cf80088656cc09d48d41f2",
+    "category": "Bug",
+    "description": "Padding needs to be correct",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "Thrll"
+  },
+  {
+    "ticket_id": "1195",
+    "title": "UI Issue",
+    "url": "https://www.notion.so/2a1b6d88d2cf80b4b9facd02ad610b2f",
+    "category": "Bug",
+    "description": "right side has much space then the left side.",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "Thrll"
+  },
+  {
+    "ticket_id": "987",
+    "title": "Redirecting Issue",
+    "url": "https://www.notion.so/26cb6d88d2cf80759239fcc1b59c9643",
+    "category": "Bug",
+    "description": "I signed up with one email and ditched the `Adventure DNA test`, after that I again signup with another email(not same email) it is redirecting me to the DNA test page where I left off.",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "Thrll"
+  },
+  {
+    "ticket_id": "841",
+    "title": "Permission Management: Check the Create lead",
+    "url": "https://www.notion.so/23eb6d88d2cf80788d52e8a13c479bb4",
+    "category": "Bug",
+    "description": "can't create the lead",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "Playbook"
+  },
+  {
+    "ticket_id": "1309",
+    "title": "Error message is wrong",
+    "url": "https://www.notion.so/2a8b6d88d2cf8030a4aee92ff3bc2af8",
+    "category": "Bug",
+    "description": "It should show `You cannot select more than 4 Featured profile`",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "Thrll"
+  },
+  {
+    "ticket_id": "238",
+    "title": "can't change status stop to in progress",
+    "url": "https://www.notion.so/1d6b6d88d2cf80a6ae1cc8542f4b2f59",
+    "category": "Bug",
+    "description": "it's should possible",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "Student Dashboard"
+  },
+  {
+    "ticket_id": "624",
+    "title": "Lead child grade follows the customer child grade",
+    "url": "https://www.notion.so/21fb6d88d2cf80da83d3cb18768513ca",
+    "category": "Bug",
+    "description": "The child grade of the lead is automatically updated to match the customer's child grade, so when the customer's child grade changes, the lead's child grade also changes.",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "Playbook"
+  },
+  {
+    "ticket_id": "827",
+    "title": "change the word, and add the feature",
+    "url": "https://www.notion.so/23ab6d88d2cf80519700cd6fdb58a940",
+    "category": "Bug",
+    "description": "change the word: ID/PW/슬랙ID → 이름/ID/PW/슬랙ID. add the feature: change the name",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "Playbook"
+  },
+  {
+    "ticket_id": "471",
+    "title": "need to match with figma about lead filter",
+    "url": "https://www.notion.so/208b6d88d2cf8092b80ccc8251a98dfc",
+    "category": "Bug",
+    "description": "There are three filter options that need to match with Figma design",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "Playbook"
+  },
+  {
+    "ticket_id": "1430",
+    "title": "Operation Hour",
+    "url": "https://www.notion.so/2c9b6d88d2cf803b919ded38c319ac4e",
+    "category": "Bug",
+    "description": "How is it possible to 3time in there. We need to display just start time and end time",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "APP"
+  },
+  {
+    "ticket_id": "208",
+    "title": "It's `Confirm Password` not `verify password`",
+    "url": "https://www.notion.so/1ceb6d88d2cf80338c26fd2e44be2b46",
+    "category": "Bug",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "Playbook"
+  }
+]

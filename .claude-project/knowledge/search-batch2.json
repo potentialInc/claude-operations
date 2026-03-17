@@ -1,0 +1,192 @@
+[
+  {
+    "ticket_id": "908",
+    "title": "Health status check answer submit is having error",
+    "url": "https://www.notion.so/24bb6d88d2cf80459c75f5253f7066a4",
+    "category": "Bug",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/21cb6d88d2cf806c843cf1c925133bed"
+  },
+  {
+    "ticket_id": "2097",
+    "title": "Checkout page bug — need to find and fix this one",
+    "url": "https://www.notion.so/2fbb6d88d2cf81469085dbc5cbc7b2a1",
+    "category": "",
+    "description": "Happened to same customer twice. They could not check out yesterday due to this. Also happened to me once but I was unable to replicate. Does anything in the lengthy error response identify any potential points of issue?",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/15ab6d88d2cf808c87c8fd96a3752bd0"
+  },
+  {
+    "ticket_id": "129",
+    "title": "profile",
+    "url": "https://www.notion.so/1b0b6d88d2cf80969967c2a1c319bf77",
+    "category": "Bug",
+    "description": "1. Profile update not properly\n2. Contact Number is empty\n~~3. When I select my gender it's showing korean, but profile showing english~~",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/16cb6d88d2cf8061820acdaeac464f70"
+  },
+  {
+    "ticket_id": "976",
+    "title": "Text/letter improvements (listing up here)",
+    "url": "https://www.notion.so/25cb6d88d2cf8091bb59c7f3a1caa8af",
+    "category": "Bug",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/21cb6d88d2cf806c843cf1c925133bed"
+  },
+  {
+    "ticket_id": "789",
+    "title": "Unable to delete any user from the user table.",
+    "url": "https://www.notion.so/238b6d88d2cf806787d1c92c98c56f66",
+    "category": "Bug",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/1ddb6d88d2cf8045ac48dc80dd964acd"
+  },
+  {
+    "ticket_id": "1307",
+    "title": "Filter Missing",
+    "url": "https://www.notion.so/2a8b6d88d2cf80dcbb77fafca05e3289",
+    "category": "Bug",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/1a0b6d88d2cf8059a1cbc90d59b17a59"
+  },
+  {
+    "ticket_id": "1414",
+    "title": "payment issue (1)",
+    "url": "https://www.notion.so/2c7b6d88d2cf80f69618c7f467156b4b",
+    "category": "Bug",
+    "description": "after payment password page, display gray screen. also not update the payment history page in app",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/23eb6d88d2cf8004943cdf95889a0abe"
+  },
+  {
+    "ticket_id": "1064",
+    "title": "User log out error",
+    "url": "https://www.notion.so/298b6d88d2cf80318725cef357ec72dc",
+    "category": "Bug",
+    "description": "error while user logout\n\\{\n\\\"message\\\": \\\"Unauthorized\\\",\n\\\"errors_data\\\": \\{\n\\\"detail\\\": \\\"Unauthorized\\\",\n\\\"code\\\": \\\"authentication_failed\\\"\n\\},\n\\\"errors\\\": \\{\\},\n\\\"status\\\": \\\"failure\\\",\n\\\"status_code\\\": 401,\n\\\"links\\\": \\{\\},\n\\\"count\\\": 0,\n\\\"total_pages\\\": 0,\n\\\"data\\\": \\[\\]\n\\}",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/22bb6d88d2cf809a9eb6ce77d8fc51b4"
+  },
+  {
+    "ticket_id": "1120",
+    "title": "Unknown looping issue",
+    "url": "https://www.notion.so/29cb6d88d2cf8045aa48eaf972a0ab87",
+    "category": "Bug",
+    "description": "Couldn't find the trigger, but there is a double loop of going back to \"Abutment details\" section when pressed Continue button on \"Abutment design\" section. The issue have happened for both Implant Crown and Implant Bridge",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/22bb6d88d2cf809a9eb6ce77d8fc51b4"
+  },
+  {
+    "ticket_id": "1310",
+    "title": "error message is not correct",
+    "url": "https://www.notion.so/2a8b6d88d2cf80868ac4df1c9e89a623",
+    "category": "Bug",
+    "description": "message should be `You already created a blog with the same title`",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/23ab6d88d2cf800d972bf8d5827c15a6"
+  },
+  {
+    "ticket_id": "2096",
+    "title": "Tab Pending List not working as intended",
+    "url": "https://www.notion.so/2fbb6d88d2cf813d8640e7f04e3249d5",
+    "category": "",
+    "description": "Tab Pending List is not filtering as intended for all of the paper/coating combination tabs at the top.\n\nShow if:\nStatus = **Pending** (shows but no time stamp) or **Received Artwork**\n\n**ALL** tab should show all offset jobs fulfilling status requirement above.\n\nThe various paper+coating/Roll/Flatbed/Hardware tabs should show only those items.\n\nCurrently, doesn't seem like any of the tabs have any real logic behind the filtering.",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/15ab6d88d2cf808c87c8fd96a3752bd0"
+  },
+  {
+    "ticket_id": "2057",
+    "title": "UPS API shipping rates not populating consistently",
+    "url": "https://www.notion.so/2fbb6d88d2cf81fba8e4d8f3b191ca38",
+    "category": "",
+    "description": "Shipping rates are not populating consistently. Last friday 9/5 it was working at times. Today, I can not get it to work at all.\n\nEDIT: ***MIGRATED ACCOUNTS SEEM TO BE MISSING THE \"ATTENTION\" FIELD WHICH MAY BE THE REASON WHY UPS RATES ARE NOT POPULATING AT CHECKOUT.***",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/15ab6d88d2cf808c87c8fd96a3752bd0"
+  },
+  {
+    "ticket_id": "2045",
+    "title": "UPS API shipping rates not populating consistently",
+    "url": "https://www.notion.so/2fbb6d88d2cf8190b300c5b4ebd5841c",
+    "category": "",
+    "description": "Shipping rates are not populating consistently. Last friday 9/5 it was working at times. Today, I can not get it to work at all.\n\nEDIT: ***MIGRATED ACCOUNTS SEEM TO BE MISSING THE \"ATTENTION\" FIELD WHICH MAY BE THE REASON WHY UPS RATES ARE NOT POPULATING AT CHECKOUT.***",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/15ab6d88d2cf808c87c8fd96a3752bd0"
+  },
+  {
+    "ticket_id": "816",
+    "title": "can't login",
+    "url": "https://www.notion.so/23ab6d88d2cf80489dd2dbe6fb9af0fd",
+    "category": "Bug",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/1a0b6d88d2cf8059a1cbc90d59b17a59"
+  },
+  {
+    "ticket_id": "1760",
+    "title": "My parents account linking is not working",
+    "url": "https://www.notion.so/92aebca79a0d497e83152a8fa3705111",
+    "category": "Bug",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/27eb6d88d2cf80c882f5c22711082f00"
+  },
+  {
+    "ticket_id": "1813",
+    "title": "Profile info save having error",
+    "url": "https://www.notion.so/1046daca6e174b8ba91d3941d6203227",
+    "category": "Bug",
+    "description": "",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/27eb6d88d2cf80c882f5c22711082f00"
+  },
+  {
+    "ticket_id": "1212",
+    "title": "Hold order error",
+    "url": "https://www.notion.so/2a1b6d88d2cf808497d1db58000cf4eb",
+    "category": "Bug",
+    "description": "For all Hold type",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/22bb6d88d2cf809a9eb6ce77d8fc51b4"
+  },
+  {
+    "ticket_id": "548",
+    "title": "today assignment filter issue",
+    "url": "https://www.notion.so/217b6d88d2cf80a896ddf67b7b615830",
+    "category": "Bug",
+    "description": "today assignment leads not showing by the filter",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/1a0b6d88d2cf8059a1cbc90d59b17a59"
+  },
+  {
+    "ticket_id": "2088",
+    "title": "\"Proceed to Checkout\" = \"Not a valid string\"",
+    "url": "https://www.notion.so/2fbb6d88d2cf8192abd0d4ad8a1ba2b8",
+    "category": "",
+    "description": "Unable to check out my current cart — e4p.isaac@gmail.com account (password 1234567!)\ncheckout seems to work on other test account, isaac@elite4print.com. maybe related to default shipping address?",
+    "dev_comment": "",
+    "status": "Close",
+    "project": "https://www.notion.so/15ab6d88d2cf808c87c8fd96a3752bd0"
+  }
+]
