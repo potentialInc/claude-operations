@@ -1,2 +1,5 @@
 # Claude Code local settings
 .claude/settings.local.json
+
+# Claude project local files
+.claude-project/
