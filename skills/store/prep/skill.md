@@ -9,6 +9,12 @@ argument-hint: "[phase]"
 
 First step in the store submission pipeline. Collects app information, generates store listing text, legal documents, client guides, and technical checklists — everything needed before actual store registration begins.
 
+## Pre-flight
+
+Before generating any output, execute the **Pre-flight: Gitignore Output Directory** from [Store Shared Reference](../_store-shared/reference.md). This ensures `store-prep/` is in `.gitignore` before any files are created.
+
+---
+
 ## Phases Overview
 
 | Phase | Name | Output |

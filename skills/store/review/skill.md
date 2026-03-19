@@ -21,6 +21,10 @@ Common rejection reasons and solutions are maintained as a database for quick re
 /store-review apple                        # Apple review rejection analysis (will ask for reason)
 ```
 
+## Pre-flight
+
+Before generating any output, execute the **Pre-flight: Gitignore Output Directory** from [Store Shared Reference](../_store-shared/reference.md). This ensures `store-prep/` is in `.gitignore` before any files are created.
+
 ## Prerequisites
 
 - Submission completed (`/store-submit`)

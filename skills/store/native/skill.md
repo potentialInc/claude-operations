@@ -25,6 +25,10 @@ Adds native features to increase the App Store review approval rate for WebView 
 /store-native all              # Set up all native features
 ```
 
+## Pre-flight
+
+Before generating any output, execute the **Pre-flight: Gitignore Output Directory** from [Store Shared Reference](../_store-shared/reference.md). This ensures `store-prep/` is in `.gitignore` before any files are created.
+
 ## Prerequisites
 
 - `/store-prep` completed (app information collected)

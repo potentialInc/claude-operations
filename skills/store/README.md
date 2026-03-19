@@ -38,7 +38,7 @@ Phase 5 (build) requires 2-4 complete.
 
 ## Naming Convention
 
-- **Operations repo**: Short names (`store/prep/`, `store/assets/`)
+- **Operations repo**: Short names (`store/prep/`, `store/assets/`, orchestrator: `store/_ship/`)
 - **Global skills** (`~/.claude/skills/`): Prefixed names (`store-prep/`, `store-assets/`)
 - **Slash commands**: Always `/store-prep`, `/store-assets`, etc.
 

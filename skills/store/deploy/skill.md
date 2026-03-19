@@ -23,6 +23,10 @@ Transitions the current development environment settings to production and stren
 /store-deploy all          # Execute full deployment preparation
 ```
 
+## Pre-flight
+
+Before generating any output, execute the **Pre-flight: Gitignore Output Directory** from [Store Shared Reference](../_store-shared/reference.md). This ensures `store-prep/` is in `.gitignore` before any files are created.
+
 ## Prerequisites
 
 - `/store-prep` completed

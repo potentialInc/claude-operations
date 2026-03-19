@@ -41,8 +41,8 @@ After creating or modifying any skill under `skills/qa/`, **always sync to globa
 
 ```bash
 rm -rf ~/.claude/skills/qa-*
-cp -r skills/qa/qa-fix ~/.claude/skills/
-cp -r skills/qa/qa-shared ~/.claude/skills/
+cp -r skills/qa/_qa-fix ~/.claude/skills/qa-fix
+cp -r skills/qa/_qa-shared ~/.claude/skills/qa-shared
 cp -r skills/qa/*/qa-* ~/.claude/skills/
 ```
 
@@ -56,8 +56,8 @@ If QA skills were modified in `~/.claude/skills/` (e.g., while working in a diff
 
 ```
 skills/qa/
-  qa-fix/          ← orchestrator (top-level)
-  qa-shared/       ← shared patterns (top-level)
+  _qa-fix/         ← orchestrator (top-level, _ prefix for sort order)
+  _qa-shared/      ← shared patterns (top-level, _ prefix for sort order)
   data/            ← Layer 1: qa-db-integrity, qa-dead-code
   api/             ← Layer 2: qa-api-sync, qa-crud
   auth/            ← Layer 3: qa-auth, qa-security
@@ -77,9 +77,12 @@ Operations uses short folder names (`store/prep/`), but global uses prefixed nam
 After creating or modifying any skill under `skills/store/`, sync to global:
 
 ```bash
-rm -rf ~/.claude/skills/store-*
+rm -rf ~/.claude/skills/store-* ~/.claude/skills/_store-shared
+cp -r skills/store/_store-shared ~/.claude/skills/_store-shared
 for d in skills/store/*/; do
   name=$(basename "$d")
+  [[ "$name" == "_store-shared" ]] && continue
+  name="${name#_}"
   cp -r "$d" ~/.claude/skills/store-$name
 done
 ```
@@ -87,6 +90,11 @@ done
 Reverse sync (global → operations):
 
 ```bash
+# Shared reference
+rm -rf skills/store/_store-shared
+cp -r ~/.claude/skills/_store-shared skills/store/_store-shared
+
+# Skills
 for d in ~/.claude/skills/store-*/; do
   name=$(basename "$d")
   short="${name#store-}"
@@ -97,9 +105,11 @@ done
 
 ```
 skills/store/
-  assets/    build/     deploy/
-  native/    prep/      review/
-  ship/      submit/
+  _ship/           ← pipeline orchestrator
+  _store-shared/   ← shared rules (gitignore pre-flight, etc.)
+  assets/    build/
+  deploy/    native/    prep/
+  review/    submit/
 ```
 
 ---

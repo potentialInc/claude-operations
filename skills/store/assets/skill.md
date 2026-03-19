@@ -23,6 +23,10 @@ Generates scripts for **Playwright-based screenshot capture (one-time)** + **bro
 /store-assets all          # Process all assets at once
 ```
 
+## Pre-flight
+
+Before generating any output, execute the **Pre-flight: Gitignore Output Directory** from [Store Shared Reference](../_store-shared/reference.md). This ensures `store-prep/` is in `.gitignore` before any files are created.
+
 ## Prerequisites
 
 - `/store-prep` must be completed and `store-prep/app-info.md` must exist

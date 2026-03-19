@@ -21,6 +21,10 @@ Creates AAB (App Bundle) for Android and IPA files for iOS, ready to upload to t
 /store-build all          # Both platforms
 ```
 
+## Pre-flight
+
+Before generating any output, execute the **Pre-flight: Gitignore Output Directory** from [Store Shared Reference](../_store-shared/reference.md). This ensures `store-prep/` is in `.gitignore` before any files are created.
+
 ## Prerequisites
 
 - `/store-native init` completed (Capacitor + platforms added)

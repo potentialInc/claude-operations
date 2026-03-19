@@ -21,6 +21,10 @@ enter prepared documents/assets, and submit for review.
 /store-submit all          # Submit to both stores
 ```
 
+## Pre-flight
+
+Before generating any output, execute the **Pre-flight: Gitignore Output Directory** from [Store Shared Reference](../_store-shared/reference.md). This ensures `store-prep/` is in `.gitignore` before any files are created.
+
 ## Prerequisites
 
 - `/store-prep` completed → listing documents prepared

@@ -59,6 +59,12 @@ and **automatically detects** prerequisites for each phase.
 
 ---
 
+## Pre-flight
+
+Before executing any phase, run the **Pre-flight: Gitignore Output Directory** from [Store Shared Reference](../_store-shared/reference.md). This ensures `store-prep/` is in `.gitignore` before any files are created. This only needs to run once at pipeline start, not before each phase.
+
+---
+
 ## Auto Status Detection (Key Improvement)
 
 ### Per-Phase Completion Detection Rules

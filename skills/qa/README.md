@@ -66,7 +66,7 @@ Layer 4 (Inputs)  →  Layer 5 (UI)      →  Tools (standalone)
 
 | Skill | Description |
 |-------|-------------|
-| [qa-shared](qa-shared/) | Shared patterns and utilities used by other QA skills |
+| [qa-shared](_qa-shared/) | Shared patterns and utilities used by other QA skills |
 
 ## Naming Convention
 
