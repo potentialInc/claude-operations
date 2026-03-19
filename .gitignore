@@ -1,0 +1,8 @@
+# Claude Code local settings
+.claude/settings.local.json
+
+# macOS
+.DS_Store
+
+# Claude project local files
+.claude-project/
