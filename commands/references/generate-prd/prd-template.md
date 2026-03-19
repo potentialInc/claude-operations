@@ -735,6 +735,167 @@ Reference `admin-standards.md` for these standard features applied to this page:
 
 ---
 
+## Section 9: Client Preparation Checklist (Separate File)
+
+> **This section is NOT included in the PRD output.**
+> It is generated as a standalone file (`client-checklist.md`) by the **checklist** agent.
+> Designed for direct delivery to clients — use client-friendly language.
+> **Focus: only items that BLOCK development if not provided.**
+
+### Output Format
+
+The checklist agent MUST output in the following client-friendly format.
+All items are presented in a single flat list — no phase/stage separation.
+The focus is on **what the client needs to provide**, not how to set things up (the dev team handles setup).
+Only include items relevant to the project's App Type and detected features.
+
+```markdown
+# [AppName] — 고객 준비사항 체크리스트
+
+> 프로젝트: [AppName]
+> 생성일: [YYYY-MM-DD]
+> 플랫폼: [Web / iOS / Android / Web + App]
+> 총 {N}개 항목
+
+---
+
+## 계정
+
+> 계정을 생성하고 개발팀에 접근 권한을 공유해주세요. 나머지 셋팅은 개발팀이 진행합니다.
+
+- [ ] **AWS 계정** — 가입 후 개발팀에 접근 권한 공유
+  - 가입: [aws.amazon.com](https://aws.amazon.com)
+
+- [ ] **도메인** — 예: yourapp.com
+  - 구매 후 관리 권한 공유
+
+(조건부 — iOS)
+- [ ] **Apple 개발자 계정** — 가입 후 개발팀 초대
+  - 비용: 연 $99
+  - 가입: [developer.apple.com](https://developer.apple.com)
+
+  **개인 vs 조직 계정:**
+  | 구분 | 개인 | 조직 |
+  |------|------|------|
+  | 가입 요건 | 신분증 | 사업자등록 + D-U-N-S 번호 |
+  | 스토어 표시 이름 | 개인 이름 | 회사/팀 이름 |
+  | 팀원 초대 | ❌ 불가 | ✅ 가능 |
+  | 추천 | 1인 개발자 | 법인, 팀 프로젝트 |
+
+  > 💡 법인 → 조직 계정 권장. D-U-N-S 번호가 필요합니다.
+
+(조건부 — Android)
+- [ ] **Google Play 개발자 계정** — 가입 후 개발팀 초대
+  - 비용: $25 (1회)
+  - 가입: [play.google.com/console](https://play.google.com/console)
+  - ⚠️ 개인 계정은 공개 출시 전 20명 이상의 테스터와 최소 14일 이상 비공개 테스트를 반드시 거쳐야 합니다
+
+  **개인 vs 조직 계정:**
+  | 구분 | 개인 | 조직 |
+  |------|------|------|
+  | 가입 요건 | Google 계정 + 신분증 | Google 계정 + 사업자등록 + D-U-N-S |
+  | 스토어 표시 이름 | 개인 이름 | 회사/팀 이름 |
+  | 추천 | 개인 프로젝트 | 법인, 상용 서비스 |
+
+  > 💡 법인 → 조직 계정 권장.
+
+(조건부 — 소셜 로그인, 사용하는 제공자만 포함)
+- [ ] **카카오 개발자 계정** — [developers.kakao.com](https://developers.kakao.com) 가입 후 공유
+- [ ] **네이버 개발자 계정** — [developers.naver.com](https://developers.naver.com) 가입 후 공유
+- [ ] **Google Cloud 계정** — [console.cloud.google.com](https://console.cloud.google.com) (Google 로그인용)
+- [ ] **LINE 개발자 계정** — [developers.line.biz](https://developers.line.biz) 가입 후 공유
+- [ ] **Facebook 개발자 계정** — [developers.facebook.com](https://developers.facebook.com) 가입 후 공유
+
+(조건부 — 결제, 한국: 기본 토스페이먼츠, PRD에 명시된 PG사가 있으면 해당 서비스명 사용)
+- [ ] **[PG사명] 계정** — 사업자 계정으로 가입
+  - 필요 서류: 사업자등록증, 대표자 신분증, 사업자 통장 사본
+(조건부 — 글로벌 결제)
+- [ ] **Stripe 계정** — [stripe.com](https://stripe.com) 가입
+
+(조건부 — AI)
+- [ ] **AI 서비스 계정** — [서비스명] 가입 + 결제 수단 등록
+
+(조건부 — 영상/채팅)
+- [ ] **영상/채팅 서비스 계정** — [서비스명] 가입
+
+(조건부 — SMS/문자인증, 한국: 기본 Solapi, PRD에 명시된 서비스가 있으면 해당 서비스명 사용)
+- [ ] **[SMS서비스명] 계정** — 가입 + 발신번호 등록
+  - 필요 서류: 사업자등록증, 통신서비스이용증명원
+  - ⚠️ 개인 번호(휴대폰) 등록 불가 — 사업자 명의 번호만 가능
+
+---
+
+## 브랜드 소재
+
+- [ ] **로고** — 벡터(SVG) + 투명배경 PNG
+- [ ] **메인 색상 + 보조 색상** — 예: #FF5733
+- [ ] **폰트** — 상업용이면 라이선스 포함
+
+(조건부 — 웹)
+- [ ] **파비콘** — 브라우저 탭에 표시되는 작은 아이콘
+- [ ] **OG 이미지** — SNS 공유 시 미리보기 이미지 (1200 × 630 픽셀)
+
+---
+
+## 스토어 제출물
+
+(조건부 — iOS)
+### iOS 앱스토어
+
+- [ ] **앱 이름** (최대 30자)
+- [ ] **앱 설명** (10~4,000자)
+- [ ] **고객지원 URL**
+- [ ] **앱 아이콘** — 1024 × 1024 픽셀, PNG
+- [ ] **스크린샷** — 1320 × 2868 픽셀, 최소 1장
+- [ ] **테스트 계정** — 심사팀용 ID/비밀번호
+- [ ] **개인정보 수집 항목** 목록
+
+(조건부 — Android)
+### Google Play 스토어
+
+- [ ] **앱 제목** (최대 30자)
+- [ ] **짧은 설명** (최대 80자)
+- [ ] **상세 설명** (최대 4,000자)
+- [ ] **개발자 이메일** — 스토어에 공개
+- [ ] **앱 아이콘** — 512 × 512 픽셀, PNG
+- [ ] **스크린샷** — 최소 2장 (1080 × 1920 권장)
+- [ ] **테스트 계정** — 심사팀용 ID/비밀번호
+- [ ] **데이터 안전 섹션** — 수집/공유하는 데이터 목록
+
+---
+
+## 법률 문서
+
+- [ ] **개인정보처리방침** — 공개 웹페이지 URL
+  - ⚠️ 없으면 앱스토어 심사에서 거절됩니다
+- [ ] **이용약관** — 공개 웹페이지 URL
+(조건부 — 한국 결제)
+- [ ] **사업자등록증** 사본
+
+---
+
+## 콘텐츠
+
+- [ ] **담당자** — 개발 중 질문에 24시간 내 응답 가능한 분 1명
+
+(조건부 — 초기 데이터가 필요한 경우)
+- [ ] **초기 데이터** — 상품, 카테고리, 지점 등 (Excel/CSV)
+- [ ] **관리자 계정** — 최초 관리자 이메일 + 이름
+
+(조건부 — 다국어)
+- [ ] **번역 파일** — 지원 언어별 텍스트
+```
+
+> **Agent output rules**:
+> - checklist agent는 위 포맷을 따르되, 조건부 항목은 해당 프로젝트에 맞는 것만 포함
+> - 한국어로 출력. `[AppName]`, `[서비스명]` 등 플레이스홀더는 실제 값으로 치환
+> - 계정 항목: **계정만 만들어서 공유하면 됨** — 셋팅/설정 방법은 쓰지 않음. 개발팀이 처리
+> - 비교표(개인 vs 조직 등): 클라이언트가 **선택해야 하는 사항**만 포함
+> - **SOP 링크 첨부**: 각 항목에 매칭되는 Notion SOP가 있으면 `📋 [SOP: 제목](url)` 형태로 첨부
+> - SOP는 Notion API에서 실시간 조회하여 매칭 (정적 매핑 아님)
+
+---
+
 ## Additional Sections
 
 ### Additional Questions
