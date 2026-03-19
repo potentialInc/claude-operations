@@ -261,7 +261,9 @@ All QA skills support: `.tsx`, `.jsx`, `.vue`, `.svelte`, `.html`, `.ts`, `.js`
 
 ## Read-Only Guarantee
 
-All QA skills are **read-only**. They analyze source code and generate reports — they do NOT modify any files.
+Individual QA skills (qa-auth, qa-crud, etc.) are **read-only** — they analyze and report only.
+
+**Exception:** `qa-fix` is the only QA skill that modifies files (Phase 2: Fix). It follows Safety Rules defined in its own skill.md.
 
 ---
 

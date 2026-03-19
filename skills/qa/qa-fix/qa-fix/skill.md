@@ -124,6 +124,8 @@ Before scanning any layer, build a **service profile** by reading code signals h
 - Security tokens (OTP) → hard-delete is correct behavior, not a violation
 - Migration adds then later removes a column → check final cumulative state, not intermediate steps
 - Domestic-only service → global timezone/currency handling is SKIP
+- Ghost column follows standard extensibility pattern (OAuth, social login, payment) → SKIP, not FIX (see D2 guide)
+- Soft-delete filter missing on user-facing query (chat, feed) → CRITICAL, not MEDIUM (see D8 clarification)
 
 **PRD enables intent-based QA**: without it, QA can only check code consistency (does the code match itself?). With PRD, QA can also check completeness (does the code match what was supposed to be built?). Service profile enables **context-based QA**: filtering out issues that are technically flaggable but irrelevant to the project's actual needs.
 
@@ -180,7 +182,7 @@ These errors are invisible to static reading but immediately caught by the compi
 | # | Check | Severity |
 |---|-------|----------|
 | D1 | Model/Entity column not in any migration | CRITICAL |
-| D2 | Migration column with no model mapping | HIGH |
+| D2 | Migration column with no model mapping (see D2 classification guide below) | HIGH* |
 | D3 | Nullable setting differs between model and migration | HIGH |
 | D4 | Column type differs between model and migration | HIGH |
 | D5 | FK column has no index | HIGH |
@@ -191,6 +193,26 @@ These errors are invisible to static reading but immediately caught by the compi
 | D10 | Column in response DTO but never populated (always null) | MEDIUM |
 | D11 | Decimal/float column without precision/scale | MEDIUM |
 | D12 | Default value in model but not in migration (or vice versa) | MEDIUM |
+
+#### D2 Classification Guide
+
+D2 flags migration columns that have no corresponding entity/model property. **Not all ghost columns are problems.** Before classifying, determine the column's category:
+
+| Category | Examples | Decision | Rationale |
+|----------|----------|----------|-----------|
+| **Standard extensibility pattern** | `social_login_type`, `oauth_provider`, `stripe_customer_id`, `two_factor_secret` | **SKIP** | Common SaaS/auth features. Column is harmless (nullable, unused by ORM), and removing it destroys future extensibility. Removing + re-adding costs 2 migrations for no runtime benefit. |
+| **Orphaned from deleted feature** | Column added for a feature that was explicitly removed (feature flag dropped, module deleted, PR reverted) | **FIX** — generate drop migration | Dead weight with no future intent. Check git history for deliberate removal signals. |
+| **Scaffold/demo leftover** | Columns from boilerplate generators, tutorial code, or demo modules (e.g., `features` table from starter kit) | **MANUAL** | Ask whether the demo module itself should be removed. If module stays, columns stay. |
+| **External system dependency** | Columns written by triggers, ETL pipelines, reporting tools, or other services outside the ORM | **SKIP** | ORM doesn't manage these; absence of entity mapping is expected. |
+| **Truly unknown** | Cannot determine origin or intent from code, git history, or project docs | **MANUAL** | Escalate for human review rather than auto-deleting. |
+
+**Key principle:** A ghost column that is nullable, has no index cost, and follows a recognizable pattern is NOT a defect — it is latent infrastructure. The cost of keeping it (a few bytes per row) is far lower than the cost of removing and re-adding it across environments.
+
+#### D8 Severity Clarification
+
+D8 default severity is MEDIUM, but **escalate to CRITICAL when the query directly serves user-facing data** (e.g., chat messages, room lists, activity feeds). Soft-deleted records appearing in user-visible UI is a runtime bug, not just a code hygiene issue. Classify as:
+- **CRITICAL** — query result is rendered in UI or returned in API response to end users
+- **MEDIUM** — query is used internally (analytics, background jobs, admin-only reports)
 
 ---
 
