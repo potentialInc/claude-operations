@@ -363,3 +363,52 @@ Missing schema: [entity] — in Entity List but no Full Schema table
 Insufficient columns: [entity] — {K} columns (minimum 5 required)
 Missing PK/FK: [entity] — [PK/FK] not properly defined
 ```
+
+---
+
+## Rule 15: Client Checklist Completeness (NEW)
+
+### Verification Method
+1. Read Section 0 App Type from PRD draft to determine platform (Web / iOS / Android / All)
+2. Read `parsed-input.md` Adaptive Complexity Flags for detected features
+3. Check `client-checklist.md` exists in `intermediate/`
+4. Verify required sections are present:
+   - 계정 section — ALWAYS required (AWS, 도메인 at minimum)
+   - Apple 개발자 계정 — required if App Type includes iOS
+   - Google Play 개발자 계정 — required if App Type includes Android
+   - 소셜 로그인 계정 — required if social login feature detected (matching providers only)
+   - 결제 계정 — required if billing/payment feature detected
+   - SMS 발신번호 — required if SMS/OTP feature detected (Korean market)
+   - 브랜드 소재 section — ALWAYS required
+   - iOS 앱스토어 제출물 — required if App Type includes iOS
+   - Google Play 스토어 제출물 — required if App Type includes Android
+   - 웹 소재 (파비콘, OG) — required if App Type includes Web
+   - 법률 문서 section — ALWAYS required
+   - 콘텐츠 section (담당자) — ALWAYS required
+5. Verify non-applicable items are NOT included
+6. Verify account items do NOT contain setup instructions (dev team handles setup)
+
+### PASS Condition
+- `client-checklist.md` exists
+- All required sections/items present based on App Type and detected features
+- No irrelevant items included (e.g., no iOS 제출물 for web-only project)
+- 계정 section has standard items (클라우드, 도메인)
+- Google Play 개인 계정 20명 이상 테스터 + 최소 14일 이상 비공개 테스트 필수 mentioned (if Android)
+- Account items only say "가입 후 공유" — no setup instructions
+
+### FAIL Condition
+- File missing
+- Required section/item missing (e.g., iOS app but no Apple 개발자 계정)
+- Irrelevant item present (e.g., Web-only but iOS 제출물 included)
+- 계정 section incomplete (missing 클라우드 or 도메인)
+- Setup instructions included in account items
+
+### Evidence Format
+```
+App Type: [Web / iOS / Android / Web+App]
+Detected features: [social login, payment, SMS, email, map, video, AI]
+Required items: [list]
+Present items: [list]
+Missing: [item — reason required]
+Irrelevant: [item — reason should not be included]
+```

@@ -293,3 +293,42 @@ QA agent validates against this guide:
 - Section 6 entities: CRUD entity from Section 3/4 missing → FAIL (rule 10)
 - Section 6 schema: entity in Entity List but no Full Schema table → FAIL (rule 14)
 - Section 7 permissions: action from Section 3/4 without Permission Matrix entry → FAIL (rule 11)
+- Section 9 checklist: required subsection missing for detected App Type/features → FAIL (rule 15)
+
+---
+
+## Section 9 — Client Preparation Checklist Density (Separate File)
+
+> Section 9 is generated as `client-checklist.md` by the checklist agent, NOT included in the PRD.
+
+### Structure
+- **Single flat list** — NO phase/stage separation (1단계/2단계/3단계 구분 없음)
+- Grouped by type: 계정, 브랜드 소재, 스토어 제출물, 법률 문서, 콘텐츠
+- All items collected upfront — everything the client needs to prepare from the start
+
+### Always Required Sections
+- 계정: 클라우드(AWS), 도메인 + 플랫폼별 개발자 계정
+- 브랜드 소재: 로고, 색상, 폰트
+- 법률 문서: 개인정보처리방침, 이용약관
+- 콘텐츠: 담당자
+
+### Conditional Section Rules
+- Only include items matching detected App Type and features
+- Web-only: MUST NOT include iOS/Android 스토어 제출물
+- App-only: MUST NOT include 웹 소재 (파비콘, OG 이미지)
+- Each conditional item: remove providers not applicable to this project
+
+### Account Items — Dev Team Handles Setup
+- For accounts (AWS, Apple, Google, social login providers, PG, etc.): client only needs to **create the account and share access**
+- Do NOT include setup instructions, configuration steps, or technical details
+- Dev team handles all setup after receiving account access
+- Only include **decision points** the client must make (e.g., individual vs organization account)
+
+### Key Platform Rules
+- Google Play 개인 계정: 공개 출시 전 **20명 이상의 테스터와 최소 14일 이상** 비공개 테스트를 반드시 거쳐야 함
+- Apple 조직 계정: D-U-N-S 번호 필요
+- iOS 소셜 로그인: 다른 소셜 로그인이 있으면 Apple 로그인 **의무**
+
+### SOP Link Attachment
+- Query Notion SOP database at runtime
+- Attach matching SOP link to each item: `📋 [SOP: title](url)`

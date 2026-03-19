@@ -1,6 +1,6 @@
 # PRD Generation v3 — Agent Prompt Templates
 
-This document defines the 5 agents for the v3 PRD generation command. Unlike v2 (10 agents, 3 modes: write/review/enhance), v3 simplifies to 5 agents with write-only mode — no cross-review rounds.
+This document defines the 6 agents for the v3 PRD generation command. Unlike v2 (10 agents, 3 modes: write/review/enhance), v3 simplifies to 6 agents with write-only mode — no cross-review rounds.
 
 ---
 
@@ -370,14 +370,102 @@ Conditional sections (only include when detected in `parsed-input.md`):
 
 ---
 
+## 6. checklist (sonnet)
+
+**Role:** Generate client preparation checklist as a standalone deliverable
+
+**Tools:** Read, Write, Glob, Grep, Bash
+
+**Input:**
+- `parsed-input.md` (App Type + Adaptive Complexity Flags + 3rd party integrations)
+
+**Reference:**
+- `prd-template.md` (Section 9 — Client Checklist Template)
+
+**External:**
+- Notion SOP Database (queried at runtime via API)
+
+**Output:**
+- `.claude-project/prd/{ProjectName}/intermediate/client-checklist.md`
+
+### Write-Mode Rules
+
+1. Read `parsed-input.md` to determine:
+   - App Type (Web / iOS / Android / Web+App)
+   - Detected features (social login, payment, SMS, email, map, video, AI, chat)
+   - Specific 3rd party services mentioned
+   - Target market (Korea, global, EU — affects provider choices)
+
+2. **Account items — dev team handles setup**:
+   - For accounts (AWS, Apple, Google, social login providers, PG, etc.): only tell client to **create account and share access**
+   - Do NOT include setup instructions, configuration steps, API key generation, or technical details
+   - Only include **decision points** the client must make (e.g., individual vs organization account — with comparison table)
+   - Replace all `[서비스명]` placeholders with actual recommended services
+   - Mark recommendations with `💡`
+
+3. **Single flat list** — NO phase/stage separation:
+   - All items collected upfront — group by type (계정, 브랜드 소재, 스토어 제출물, 법률 문서, 콘텐츠)
+   - Do NOT split into 1단계/2단계/3단계
+
+4. **Conditional inclusion by App Type**:
+   - Web → 파비콘, OG 이미지
+   - iOS → Apple 개발자 계정, iOS 앱스토어 제출물
+   - Android → Google Play 개발자 계정 (⚠️ 개인 계정은 공개 출시 전 20명 이상의 테스터와 최소 14일 이상 비공개 테스트 필수 — 반드시 명시), Google Play 스토어 제출물
+
+5. **Conditional inclusion by detected features**:
+   - Social login → 해당 제공자 계정만 (카카오, 네이버, Google, Apple, LINE, Facebook 등)
+   - Billing/payment → PG사 또는 Stripe 계정
+   - SMS/OTP → SMS 발신번호 등록 (한국: KISA)
+   - Map → 지도 서비스 계정
+   - Video/chat → 영상/채팅 서비스 계정
+   - AI → AI 서비스 계정
+
+6. **Conditional inclusion by content needs**:
+   - Pre-existing content → 초기 데이터, 관리자 계정
+   - Multi-language → 번역 파일
+
+7. **SOP link attachment** (Notion API lookup):
+   - After generating all checklist items, query the Notion SOP database to find matching guides
+   - **Database ID**: `15ab6d88d2cf8042a9effff908507e5f`
+   - **API call**: Use Bash to run:
+     ```bash
+     curl -s -X POST 'https://api.notion.com/v1/databases/15ab6d88d2cf8042a9effff908507e5f/query' \
+       -H "Authorization: Bearer $NOTION_API_KEY" \
+       -H 'Notion-Version: 2022-06-28' \
+       -H 'Content-Type: application/json' \
+       -d '{"page_size": 100}'
+     ```
+   - **Token**: Uses `$NOTION_API_KEY` environment variable (already configured in shell profile)
+   - **Matching logic**: For each checklist item, search SOP results by keyword matching on `Name` and `Category` fields
+   - **Language preference**: Prefer Korean SOP (`Language: Korean`), fall back to English if Korean not available
+   - **Output format**: Attach matching SOP link below each checklist item:
+     ```
+     - [ ] **항목명** — 설명
+       - 📋 [SOP: 가이드 제목](notion-public-url)
+     ```
+   - **Multiple SOPs**: If multiple SOPs match one item, attach all relevant ones
+   - **No match**: If no SOP exists for an item, skip — do not add placeholder
+   - **Cache**: Query the database once, then match locally — do not make per-item API calls
+
+8. **Output rules**:
+   - Remove non-applicable rows/sections entirely
+   - ⏰ 요약 table: only project-relevant items, sorted by longest lead time first
+   - Fill project-specific details where available (actual providers, market)
+   - Unknown items: mark `[💡 Recommended]`
+   - **Language: Korean** — client-facing, clear, actionable, no unnecessary jargon
+   - Follow the exact output format defined in `prd-template.md` Section 9
+
+---
+
 ## Agent Execution Order
 
 ```
-1. parser (sonnet)     → parsed-input.md, screen-inventory.md, tbd-items.md
-2. prd-writer (opus)   → Section 0-4 draft
-3. tech-writer (opus)  → Section 5-7 draft
-4. qa (sonnet)         → Validation results
-5. support (sonnet)    → Final PRD (only if QA has FAILs)
+1. parser (sonnet)       → parsed-input.md, screen-inventory.md, tbd-items.md
+2. prd-writer (opus)     → Section 0-4 draft
+   tech-writer (opus)    → Section 5-7 draft
+   checklist (sonnet)    → client-checklist.md
+3. qa (sonnet)           → Validation results
+4. support (sonnet)      → Final PRD (only if QA has FAILs)
 ```
 
-Steps 2 and 3 may run in parallel since tech-writer can fall back to `screen-inventory.md` when Section 3/4 drafts are not yet available. If Section 3/4 drafts are available, tech-writer should use them for more accurate entity extraction.
+Step 2 agents run in parallel. tech-writer can fall back to `screen-inventory.md` when Section 3/4 drafts are not yet available. checklist agent only needs `parsed-input.md` from Phase 1.
