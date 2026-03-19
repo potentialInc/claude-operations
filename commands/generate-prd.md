@@ -1,7 +1,7 @@
 ---
 description: "Generate a dense, development-ready PRD using optimized multi-agent workflow"
 argument-hint: "Path to client answer file (e.g., /path/to/client-answers.md)"
-allowed-tools: Agent, Read, Write, Edit, Glob, Grep, AskUserQuestion, Bash(mkdir *)
+allowed-tools: Agent, Read, Write, Edit, Glob, Grep, AskUserQuestion, Bash(mkdir *), Bash(curl * api.notion.com *)
 ---
 
 # Generate PRD — Optimized Multi-Agent Orchestration
@@ -25,7 +25,8 @@ Generate a dense, development-ready PRD from client input using a streamlined 4-
 | **parser** | sonnet | Parse input → 3 intermediate artifacts |
 | **prd-writer** | opus | Write Section 0-4 (Overview + Terminology + Modules + User App + Admin) |
 | **tech-writer** | opus | Write Section 5-7 (System Design + Full Schema + Permission Matrix) |
-| **qa** | sonnet | Validate against 14 machine-verifiable rules |
+| **checklist** | sonnet | Generate client preparation checklist (separate file) + attach SOP links from Notion |
+| **qa** | sonnet | Validate against 15 machine-verifiable rules |
 | **support** | sonnet | Fix QA FAIL items (max 3 rounds) |
 
 ## Reference Files
@@ -35,7 +36,7 @@ All references located under `commands/references/generate-prd/`:
 - `prompt-templates.md` — Agent specs + write-mode prompts
 - `depth-guide.md` — Mandatory density requirements
 - `admin-standards.md` — Admin standard feature matrix
-- `validation-checklist.md` — 14 machine-verifiable QA rules
+- `validation-checklist.md` — 15 machine-verifiable QA rules
 
 ---
 
@@ -134,8 +135,9 @@ Launch **prd-writer** and **tech-writer** simultaneously.
 ┌──────────────────────────────────────────────┐
 │  Parallel Execution                          │
 │                                              │
-│  prd-writer (opus)  → Section 0-4            │
-│  tech-writer (opus) → Section 5-7            │
+│  prd-writer (opus)    → Section 0-4          │
+│  tech-writer (opus)   → Section 5-7          │
+│  checklist (sonnet)   → client-checklist.md  │
 │                                              │
 └──────────────────────────────────────────────┘
 ```
@@ -143,7 +145,7 @@ Launch **prd-writer** and **tech-writer** simultaneously.
 ### Agent Input Distribution
 
 ```
-Both agents receive:     parsed-input.md + screen-inventory.md + tbd-items.md
+All 3 agents receive:    parsed-input.md + screen-inventory.md + tbd-items.md
 
 prd-writer also gets:    depth-guide.md (Section 0-4)
                          prd-template.md (Section 0-4)
@@ -154,7 +156,12 @@ tech-writer also gets:   depth-guide.md (Section 5-7)
                          prd-template.md (Section 5-7)
                          Section 3/4 drafts (WAIT for prd-writer to finish,
                          OR read screen-inventory.md for entity extraction)
+
+checklist also gets:     prd-template.md (Section 9)
+                         Notion SOP DB access (via API — DB ID: 15ab6d88d2cf8042a9effff908507e5f)
 ```
+
+**Notion SOP Integration**: The checklist agent queries the Notion SOP database at runtime to attach relevant guide links to each checklist item. The agent needs `NOTION_API_KEY` environment variable (Notion integration token) to access the database. If the token is unavailable, the agent generates the checklist without SOP links.
 
 **Critical dependency**: tech-writer needs Section 3/4 entity information for Schema and Permission Matrix. Two approaches:
 - **Option A (Preferred)**: Run prd-writer first, then tech-writer with Section 3/4 output
@@ -196,6 +203,7 @@ If `.claude-project/knowledge/bug-patterns.md` or `commands/references/generate-
 
 - `.claude-project/prd/{ProjectName}/drafts/section-0-4.md`
 - `.claude-project/prd/{ProjectName}/drafts/section-5-7.md`
+- `.claude-project/prd/{ProjectName}/intermediate/client-checklist.md`
 
 ---
 
@@ -229,7 +237,7 @@ Save: `.claude-project/prd/{ProjectName}/drafts/prd-integrated.md`
 
 ### 3.2 QA Validation
 
-Launch **qa** (sonnet) to validate against 14 rules.
+Launch **qa** (sonnet) to validate against 15 rules.
 
 > Detailed rules: see `commands/references/generate-prd/validation-checklist.md`
 
@@ -249,6 +257,7 @@ Launch **qa** (sonnet) to validate against 14 rules.
 | 12 | Client Requirement Tracking | Explicit requirement missing from PRD and Open Questions |
 | 13 | Real Scenario Existence | Module without success+failure Real Scenario |
 | 14 | Full Schema Completeness | Entity in Entity List but missing from Full Schema |
+| 15 | Client Checklist Completeness | Required subsection missing based on App Type / detected features |
 
 ### QA Output Format
 
@@ -362,7 +371,8 @@ rm -rf .claude-project/prd/{ProjectName}/drafts/
 - Section 6: Data Model — Full Schema ({K} entities, {K} tables) ✅
 - Section 7: Permission Matrix ({R} roles × {A} resources) ✅
 - Section 8: Open Questions ({Q} items) ✅
-- QA Validation: PASS ({N} rounds, 14 rules)
+- QA Validation: PASS ({N} rounds, 15 rules)
+- Client Checklist: {N} subsections ({M} items)
 - Recommended items: {N} approved [📌 Adopted], {M} moved to questions
 - Additional Questions: {N} items
 - UX Suggestions: {N} items (or "Skipped")
@@ -372,13 +382,15 @@ rm -rf .claude-project/prd/{ProjectName}/drafts/
 ### Output Structure
 .claude-project/prd/{ProjectName}/
 ├── intermediate/              ← Intermediate artifacts
+│   └── client-checklist.md    ← Client deliverable
 ├── drafts/                    ← Agent drafts
 └── {AppName}_PRD_{YYMMDD}.md  ← Final PRD
 
 ### Next Steps
 1. Review the Additional Questions section
 2. Send questions to client for clarification
-3. Update PRD with client responses using `/generate-prd [answer-file]`
+3. **Deliver `client-checklist.md` to client for preparation**
+4. Update PRD with client responses using `/generate-prd [answer-file]`
 ```
 
 ---
@@ -449,4 +461,4 @@ PMs can use this template when gathering requirements:
 | `commands/references/generate-prd/prompt-templates.md` | Agent specs + write-mode prompts |
 | `commands/references/generate-prd/depth-guide.md` | Mandatory density requirements |
 | `commands/references/generate-prd/admin-standards.md` | Admin standard feature matrix |
-| `commands/references/generate-prd/validation-checklist.md` | 14 machine-verifiable QA rules |
+| `commands/references/generate-prd/validation-checklist.md` | 15 machine-verifiable QA rules |
